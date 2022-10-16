@@ -11,6 +11,7 @@ import { connectDB } from "./config/db";
 import { errorHandler,notFound } from "./middleWare/errorMiddleWare";
 
 // Routes
+import userRoutes from "./routes/userRoutes.js"
 
 dotenv.config()
 
@@ -21,6 +22,8 @@ const app = express()
 if(process.env.NODE_ENV === 'development') app.use(morgan('dev'))
 
 app.use(express.json())
+
+app.use('/api/user', userRoutes)
 
 
 app.use(notFound)
