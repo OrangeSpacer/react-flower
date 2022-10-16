@@ -4,9 +4,11 @@ import dotenv from "dotenv";
 import colors from "colors";
 
 // Config
+import { connectDB } from "./config/db";
+
 
 // MiddleWare
-import { connectDB } from "./config/db";
+import { errorHandler,notFound } from "./middleWare/errorMiddleWare";
 
 // Routes
 
