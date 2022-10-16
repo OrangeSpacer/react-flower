@@ -4,11 +4,11 @@ import dotenv from "dotenv";
 import colors from "colors";
 
 // Config
-import { connectDB } from "./config/db";
+import { connectDB } from "./config/db.js";
 
 
 // MiddleWare
-import { errorHandler,notFound } from "./middleWare/errorMiddleWare";
+import { errorHandler,notFound } from "./middleWare/errorMiddleWare.js";
 
 // Routes
 import userRoutes from "./routes/userRoutes.js";
