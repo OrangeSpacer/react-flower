@@ -1,0 +1,60 @@
+@import '../../styles/variables';
+
+.burger{
+    display: flex;
+    &__list{
+        display: flex;
+        &_item{
+            &:not(:last-child){
+                margin-right: 50px;
+            }
+            &_link{
+                font-weight: 400;
+                font-size: 14px;
+                text-transform: uppercase;
+                text-decoration: none;
+                color: $white;
+                transition: all 0.5s ease;
+                &:hover{
+                    color: $black-violet;
+                    transition: all 0.5s ease;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:995px){
+    .burger{
+        &__list{
+            &_item{
+                &:not(:last-child){
+                    margin-right: 20px;
+                }
+                &_link{
+                    font-size: 13px;
+                }
+            }
+        }
+    }   
+}
+
+@media screen and (max-width: 768px){
+    .burger{
+        flex-direction: column;
+        &__list{
+            flex-direction: column;
+            &_item{
+                text-align: left;
+                margin-bottom: 10px;
+                &:not(:last-child){
+                    margin-right: 0;
+                    margin-bottom: 50px;
+                }
+                &_link{
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
