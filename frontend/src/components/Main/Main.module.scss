@@ -1,0 +1,64 @@
+@import '../../styles/variables';
+
+.img{
+    position: absolute;
+    top: -10%;
+    z-index: -1;
+    width: 100%;
+    max-height: 1244px;
+}
+
+.title{
+    margin: 52px 0;
+    text-align: center;
+    font-weight: 300;
+    font-size: 200px;
+    line-height: 242px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+
+    color: $white;
+}
+
+.subtitle{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: $white;
+}
+
+
+.btnBlock{
+    margin-top: 47px;
+    text-align: center;
+}
+
+@media screen and (max-width: 1150px) {
+    .title{
+        font-size: 150px;
+        line-height: 150px;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .title{
+        font-size: 100px;
+        line-height: 100px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .img{
+        top: 0;
+        height: 485px;
+        object-fit: cover;
+    }
+    .title{
+        display: none;
+    }
+    .subtitle{
+        margin-top: 150px;
+    }
+}

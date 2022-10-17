@@ -2,6 +2,7 @@
 
 .header{
     display: grid;
+    align-items: center;
     grid-template-columns: 1fr 30px;
     padding: 5px 20px;
     &__content{
