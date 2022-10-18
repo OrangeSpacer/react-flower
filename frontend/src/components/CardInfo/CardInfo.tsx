@@ -17,7 +17,7 @@ const CardInfo = ({infoArray,title,titleSide}:CardInfoProps) => {
         <div className={styles.content}>
             <ul className={styles.list}>
                 {infoArray.map(item => 
-                    <li className={styles.item}>
+                    <li key={item} className={styles.item}>
                         {item}
                     </li>
                 )}
