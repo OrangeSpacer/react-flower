@@ -7,7 +7,7 @@ const Main = ({}:MainProps) => {
   return (
     <div className={styles.main}>
         <img src="img/Main/mainBG.png" alt="background" className={styles.img}/>
-        <div>
+        <div className={styles.mainContent}>
             <h1 className={styles.title}>
                 Lower Flower
             </h1>
@@ -19,7 +19,6 @@ const Main = ({}:MainProps) => {
                     смотреть каталог
                 </Button>
             </div>
-            <div></div>
         </div>
     </div>
   )

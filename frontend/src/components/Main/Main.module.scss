@@ -1,11 +1,16 @@
 @import '../../styles/variables';
 
+.main{
+    height: 100vh;
+}
+
 .img{
     position: absolute;
-    top: -10%;
+    top: 0;
     z-index: -1;
     width: 100%;
-    max-height: 1244px;
+    height: 100vh;
+    object-fit: cover;
 }
 
 .title{
@@ -50,10 +55,11 @@
 }
 
 @media screen and (max-width: 768px) {
-    .img{
-        top: 0;
-        height: 485px;
-        object-fit: cover;
+    .mainContent{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
     }
     .title{
         display: none;

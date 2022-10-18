@@ -1,0 +1,84 @@
+@import "../../styles/variables";
+
+
+.catalog{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.info{
+    padding-left: 100px;
+    max-width: 540px;
+    margin-bottom: 30px;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0.04em;
+    color: $white;
+}
+
+.infoBlock{
+    position: relative;
+}
+
+.infoBlockSetting{
+    margin-bottom: 30px;
+}
+
+.backtext{
+    top: 0;
+    left: -40%;
+    margin: 0;
+    position: absolute;
+    font-weight: 700;
+    font-size: 200px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    z-index: -1;
+    color: #0A1717;
+}
+
+.backtextRight{
+    left: 45%;
+}
+
+@media screen and (max-width:1200px) {
+    .info{
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width:980px) {
+    .catalog{
+        justify-content: center;
+    }
+    .catalogLeft{
+        margin-bottom: 30px;
+    }
+    .info{
+        padding-left: 0;
+    }
+    .backtext{
+        display: none;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .catalog{
+        margin-top:100px;
+    }
+}
+
+@media screen and (max-width:570px) {
+    .title{
+        text-align: center;
+    }
+    .catalog{
+        justify-content: center;
+    }
+    .info{
+        max-width: 450px;
+        text-align: center;
+    }
+}
