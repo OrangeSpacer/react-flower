@@ -15,7 +15,7 @@ const Main = ({}:MainProps) => {
                 Создаём для тех, кто ценит свежесть и изящество цветка
             </div>
             <div className={styles.btnBlock}>
-                <Button onClick={() => console.log("Смотреть каталог")}>
+                <Button onClick={() => console.log("Смотреть каталог")} type='default'>
                     смотреть каталог
                 </Button>
             </div>

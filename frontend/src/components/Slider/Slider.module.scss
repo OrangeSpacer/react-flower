@@ -1,0 +1,29 @@
+.slide{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prev{
+    left: 50px;
+    &::after{
+        display: none;
+    }
+}
+
+.next{
+    right: 50px;
+    &::after{
+        display: none;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .prev{
+        display: none;
+    }
+    
+    .next{
+        display: none;
+    }
+}

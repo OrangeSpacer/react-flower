@@ -1,0 +1,38 @@
+@import '../../styles/variables';
+
+.popular{
+    margin-top: 150px;
+    position: relative;
+    padding: 0 20px;
+}
+
+.text{
+    margin-bottom: 85px;
+    text-align: right;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.02em;
+    color: $white;
+}
+
+.backImg{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -10;
+}
+
+@media screen and (max-width:768px) {
+    .popular{
+        padding: 20px;
+    }
+    .backImg{
+        transform: translateX(20px);
+        height: 100%;
+    }
+    .text{
+        text-align: center;
+        margin-top: 20px;
+    }
+}

@@ -1,4 +1,4 @@
-@import "../../styles/variables";
+@import "../../../styles/variables";
 
 .title{
     margin: 0;
@@ -26,11 +26,14 @@
     .title{
         font-size: 65px;
         line-height: 80px;
+        text-align: center;
     }
 }
 
 @media screen and (max-width:550px) {
     .title{
         text-align: center;
+        font-size: 35px;
+        line-height: 50px;
     }
 }

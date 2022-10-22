@@ -1,0 +1,33 @@
+@import '../../styles/variables';
+
+.img{
+    width: 350px;
+    height: 450px;
+}
+
+.name{
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $white;
+}
+
+.price{
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $white;
+}
+
+@media screen and (max-width:480px) {
+    .img{
+        width: 100%;
+        height: auto;
+    }
+}

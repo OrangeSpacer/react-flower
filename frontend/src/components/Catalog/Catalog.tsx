@@ -1,5 +1,5 @@
 import CardInfo from '../CardInfo/CardInfo'
-import Title from '../Title/Titiel'
+import Title from '../UI/Title/Titiel'
 import { firstInfo, secondInfo, thirdInfo } from './CatalogInfo'
 import cn from "classnames"
 
