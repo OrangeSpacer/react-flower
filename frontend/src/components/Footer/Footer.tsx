@@ -39,7 +39,7 @@ const Footer = ({catalogLinks,pageLinks}:FooterProps) => {
         <div className={styles.block}>
             <div>
                 {pageLinks.map(item => 
-                    <div className={styles.pageLinks}>
+                    <div key={item.name} className={styles.pageLinks}>
                         <Link to={item.link} className={styles.title}>
                             {item.name}
                         </Link>
