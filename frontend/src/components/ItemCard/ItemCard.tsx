@@ -6,8 +6,8 @@ import styles from './ItemCard.module.scss'
 
 const ItemCard = ({colorless,imgLink,price,name}:ItemCardProps) => {
   return (
-    <div className={cn(styles.ItemCard,{[styles.colorless]: colorless === true})}>
-        <img src={imgLink} alt="imgItem" className={styles.img}/>
+    <div className={styles.ItemCard}>
+        <img src={imgLink} alt="imgItem" className={cn(styles.img,{[styles.colorless]: colorless === true})}/>
         <div className={styles.name}>
             {name}
         </div>

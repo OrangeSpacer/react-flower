@@ -5,6 +5,10 @@
     height: 450px;
 }
 
+.colorless{
+    filter: grayscale(100%)
+}
+
 .name{
     margin-top: 10px;
     font-weight: 400;
