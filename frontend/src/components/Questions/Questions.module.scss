@@ -1,0 +1,47 @@
+@import '../../styles/variables';
+
+.questions{
+    position: relative;
+    margin-top: 180px;
+    padding: 15px;
+    height: 900px;
+}
+
+.formBlock{
+    margin-top: 50px;
+    margin-left: 50%;
+}
+
+.text{
+    text-align: center;
+    width: 100%;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    color: $white;
+}
+
+.img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -100;
+}
+
+.imgTop{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -99;
+}
+
+@media screen and (max-width:768px) {
+    .formBlock{
+        margin-left: 0%;
+    }
+}

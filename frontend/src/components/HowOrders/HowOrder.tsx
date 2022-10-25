@@ -13,17 +13,17 @@ const HowOrder = () => {
     {step:'5 шаг',text:"Наслаждайтесь цветами , если вы заказали их для дома или любовью, которой поделились, если вы заказали для друга"},
   ]
   return (
-    <Container>
         <div className={styles.howOrder}>
-            <div className={styles.titleBlock}>
-                <Title title='Как сделать' titleSide='l' subtitle='заказ' subTitleSide='l'/>
-            </div>
-            <div className={styles.steps}>
-                {steps.map((item,index) => <Step key={index} step={item.step} text={item.text}/>)}
-            </div>
-            <img src="img/HowOrder/bg.png" alt="bg" className={styles.img}/>
+          <Container>
+              <div className={styles.titleBlock}>
+                  <Title title='Как сделать' titleSide='l' subtitle='заказ' subTitleSide='l'/>
+              </div>
+              <div className={styles.steps}>
+                  {steps.map((item,index) => <Step key={index} step={item.step} text={item.text}/>)}
+              </div>
+              <img src="img/HowOrder/bg.png" alt="bg" className={styles.img}/>
+          </Container>
         </div>
-    </Container>
   )
 }
 

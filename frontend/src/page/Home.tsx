@@ -2,6 +2,7 @@ import Catalog from '../components/Catalog/Catalog'
 import HowOrder from '../components/HowOrders/HowOrder'
 import Main from '../components/Main/Main'
 import Popular from '../components/Popular/Popular'
+import Questions from '../components/Questions/Questions'
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
         <Catalog/>
         <Popular/>
         <HowOrder/>
+        <Questions/>
     </div>
   )
 }

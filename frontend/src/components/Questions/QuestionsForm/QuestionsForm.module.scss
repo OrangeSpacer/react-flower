@@ -1,0 +1,45 @@
+@import '../../../styles/variables';
+
+.questionsForm{
+    display: flex;
+    justify-content: center;
+}
+
+.form{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    max-width: 445px;
+    gap: 40px;
+    width: 100%;
+}
+
+.content{
+    position: relative;
+    width: 100%;
+}
+
+.error{
+    position: absolute;
+    top: -20px;
+    margin: 0;
+    color: $error;
+}
+
+.input{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.04em;
+    width: -webkit-fill-available;
+    padding: 20px 0 20px 10px;
+    border: 1px solid $main;
+    background: transparent;
+    color: $white;
+    &::placeholder{
+        color: $black-green;
+    }
+}
+
+.textarea{
+    resize: none;
+}
