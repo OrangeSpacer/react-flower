@@ -1,0 +1,20 @@
+@import '../../styles/variables';
+
+.step{
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 44px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $light-pink;
+}
+
+.text{
+    margin-top: 12px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $white;
+}

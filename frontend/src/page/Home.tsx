@@ -1,4 +1,5 @@
 import Catalog from '../components/Catalog/Catalog'
+import HowOrder from '../components/HowOrders/HowOrder'
 import Main from '../components/Main/Main'
 import Popular from '../components/Popular/Popular'
 
@@ -8,6 +9,7 @@ const Home = () => {
         <Main/>
         <Catalog/>
         <Popular/>
+        <HowOrder/>
     </div>
   )
 }
