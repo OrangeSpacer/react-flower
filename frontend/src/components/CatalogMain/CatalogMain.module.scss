@@ -1,0 +1,49 @@
+@import '../../styles/variables';
+
+.main{
+    position: relative;
+}
+
+.content{
+    padding: 15px 20px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+}
+
+.text{
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $white;
+}
+
+.tags{
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.leftFlower{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+}
+
+.rightFlower{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -10;
+}
+
+@media screen and (max-width:768px) {
+    .main{
+        margin-top: 74px;
+    }
+}

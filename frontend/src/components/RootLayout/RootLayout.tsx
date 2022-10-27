@@ -1,7 +1,8 @@
 import Footer from '../Footer/Footer'
-import { FooterProps } from '../Footer/Footer.props'
 import Header from '../Header/Header'
 import { HeaderProps } from '../Header/Header.props'
+
+import styles from './RootLayout.module.scss'
 
 const RootLayout = ({children}:HeaderProps) => {
   const catalogLinks = [
@@ -25,9 +26,9 @@ const RootLayout = ({children}:HeaderProps) => {
   ]
 
   return (
-    <div>
+    <div className={styles.wrapper}>
         <Header/>
-        <div>
+        <div className={styles.body}>
             {children}
         </div>
         <Footer pageLinks={pageLinks} catalogLinks={catalogLinks}/>
