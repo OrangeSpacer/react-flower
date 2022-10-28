@@ -1,15 +1,14 @@
 import Container from '../Container/Container'
 import Slider from '../Slider/Slider'
-import { SliderProps } from '../Slider/Slider.props'
 import Title from '../UI/Title/Titiel'
 
 import styles from  './Popular.module.scss'
 
 const Popular = () => {
   const sliderArray = [
-    {name:'лучший день',colorless:true,imgLink:'img/cardItem/1.png',price:'167.000 ₽'},
-    {name:'лучший день',colorless:true,imgLink:'img/cardItem/2.png',price:'167.000 ₽'},
-    {name:'лучший день',colorless:true,imgLink:'img/cardItem/3.png',price:'167.000 ₽'},
+    {name:'лучший день',colorless:true,imgLink:'1',price:'167.000 ₽'},
+    {name:'лучший день',colorless:true,imgLink:'2',price:'167.000 ₽'},
+    {name:'лучший день',colorless:true,imgLink:'3',price:'167.000 ₽'},
   ]
   return (
     <Container>

@@ -4,5 +4,7 @@ export interface ItemCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivE
     name: string
     imgLink: string,
     price: string,
-    colorless: boolean
+    width?: string,
+    height?: string,
+    colorless?: boolean
 }
