@@ -1,0 +1,36 @@
+@import '../../styles/variables';
+
+.filter{
+    width: 255px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 16px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+}
+
+.filterBlock{
+    margin-bottom: 20px;
+}
+
+.input{
+    padding: 5px 5px;
+    background: none;
+    border-radius: 40px;
+    font-size: 18px;
+    color: $white;
+    border: 1px solid $white;
+}
+
+.label{
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $main;
+}

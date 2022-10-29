@@ -1,9 +1,8 @@
-import { MainProps } from './Main.props'
 
 import styles from  './Main.module.scss'
 import Button from '../UI/Button/Button'
 
-const Main = ({}:MainProps) => {
+const Main = () => {
   return (
     <div className={styles.main}>
         <img src="img/Main/mainBG.png" alt="background" className={styles.img}/>
