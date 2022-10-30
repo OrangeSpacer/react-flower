@@ -1,0 +1,25 @@
+@import '../../../styles/variables';
+
+.label{
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $main;
+}
+
+.checkItem{
+    display: flex;
+}
+
+.checkValue{
+    margin-left: 5px;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $white;
+}

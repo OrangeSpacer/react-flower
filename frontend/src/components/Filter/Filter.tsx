@@ -1,14 +1,21 @@
 import { useEffect, useState } from 'react'
+import { FilterProps } from './Filter.props'
 import Button from '../UI/Button/Button'
-import CheckBox from '../UI/CheckBox/CheckBox'
 
 import styles from './Filter.module.scss'
-import { FilterProps } from './Filter.props'
+import FilterCategory from './FilterCategory/FilterCategory'
 
-const Filter = ({defaultPrice,setColor,setInputValue,setPrice,defaultFilter,searchValue,colors}:FilterProps) => {
+const Filter = ({light,setLight,format,setFormat,defaultPrice,setColor,setInputValue,setPrice,defaultFilter,searchValue,colors}:FilterProps) => {
   
   const [minPrice,setMinPrice] = useState(defaultPrice[0])
   const [maxPrice,setMaxPrice] = useState(defaultPrice[1])
+
+  const category = [
+    {title:"По цвету",arrayValue:colors,setValue:setColor},
+    {title:"По формату",arrayValue:format,setValue:setFormat},
+    {title:"По свету",arrayValue:light,setValue:setLight}
+  ]
+
 
 
   const handlePrice = (e:any,setNewValue:any) => {
@@ -40,25 +47,22 @@ const Filter = ({defaultPrice,setColor,setInputValue,setPrice,defaultFilter,sear
           <p className={styles.label}>
               Цена
           </p>
-          <div>
+          <div className={styles.category}>
             <div>
-              <p>min</p>
-              <input value={defaultPrice[0]} onChange={(e:any) => handlePrice(e,setMinPrice)}/>
+              <p className={styles.miniLabel}>min</p>
+              <input value={defaultPrice[0]} onChange={(e:any) => handlePrice(e,setMinPrice)} className={styles.input}/>
             </div>
             <div>
-              <p>max</p>
-              <input value={defaultPrice[1]} onChange={(e:any) => handlePrice(e,setMaxPrice)}/>
+              <p className={styles.miniLabel}>max</p>
+              <input value={defaultPrice[1]} onChange={(e:any) => handlePrice(e,setMaxPrice)} className={styles.input}/>
             </div>
           </div>
         </div>
-        <div className={styles.filterBlock}>
-          <p className={styles.label}>
-              По цвету
-          </p>
-          <div>
-            {colors.map((item:any) => <div key={item.id} onClick={() => setColor(item.id)}><span>{item.value}</span><CheckBox checked={item.checked}/></div>)}
+        {category.map((item,index) => 
+          <div className={styles.filterBlock} key={index}>
+            <FilterCategory title={item.title} category={item.arrayValue} setCategory={item.setValue}/>
           </div>
-        </div>
+        )}
         <Button type='cart' onClick={defaultFilter}>
             Сбросить фильтер
         </Button>
