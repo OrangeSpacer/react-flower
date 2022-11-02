@@ -46,6 +46,11 @@
     &__openContent{
         display: none;
     }
+    &__cart{
+        &_img{
+            cursor: pointer;
+        }
+    }
 }
 
 @media screen and (max-width:995px) {

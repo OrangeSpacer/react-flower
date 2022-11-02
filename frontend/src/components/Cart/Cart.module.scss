@@ -1,0 +1,74 @@
+@import '../../styles/variables';
+
+
+.cart{
+    transform: translateX(200%);
+    transition: all 0.5s ease;
+}
+
+.mainBlock{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.close{
+    cursor: pointer;
+}
+
+.cart{
+    position: fixed;
+    padding: 20px 30px;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 25vw;
+    background: black;
+}
+
+.title{
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 44px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $main;
+}
+
+.open{
+    transform: translateX(0);
+    transition: all 0.5s ease;
+}
+
+@media screen and (max-width:1440px){
+    .cart{
+        width: 35vw;
+    }
+}
+
+@media screen and (max-width:768px){
+    .cart{
+        width: 45vw;
+    }
+    .title{
+        font-size: 25px;
+    }
+}
+
+
+@media screen and (max-width:650px){
+    .cart{
+        width: 65vw;
+        padding: 30px 10px;
+    }
+    .title{
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width:470px){
+    .cart{
+        width: 85vw;
+    }
+}

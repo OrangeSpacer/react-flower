@@ -2,11 +2,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Burger from "../Burger/Burger";
+import Cart from "../Cart/Cart";
 import styles from "./Header.module.scss";
 import { LinkList } from "./HeaderLinkList";
 
 const Header = () => {
   const [openContent,setOpenContent] = useState(false)
+  const [cartOpen,setCartOpen] = useState(false)
 
   const openContentHandle = () => {
     setOpenContent(!openContent)
@@ -38,8 +40,8 @@ const Header = () => {
         Lower Flower
       </div>
       <div className={styles.header__cart} style={{color:'white'}}>
-        test
-            {/* Компонент Корзины */}
+        <img src="img/cart/cart.svg" alt="cart" onClick={() => setCartOpen(!cartOpen)} className={styles.header__cart_img}/>
+        <Cart open={cartOpen} setOpen={setCartOpen}/>
       </div> 
       <div className={styles.header__openContent} onClick={openContentHandle}>
         {openContent ? <img src="/img/header/close.svg" alt="close"/>:<img src="/img/header/burger.svg" alt="burger"/>}
