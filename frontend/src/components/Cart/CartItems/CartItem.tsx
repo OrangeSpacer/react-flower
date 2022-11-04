@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import Counter from '../../UI/Counter/Counter'
-import { CartItemProps } from './CartItem.props'
 
 
 import styles from './CartItem.module.scss'
+import { CartItemProps } from './CartItem.props'
 
-const CartItem = ({cost,imgId,title}:CartItemProps) => {
+const CartItem = ({cost,imageId,title}:CartItemProps) => {
     const [count,setCount] = useState('1')
     const [costItem,setCostItem] = useState<string>(cost)
 
@@ -21,7 +21,7 @@ const CartItem = ({cost,imgId,title}:CartItemProps) => {
     return (
     <div className={styles.cartItem}>
         <div className={styles.imgBlock}>
-            <img src={`img/cardItem/${imgId}.png`} alt="cardItem" className={styles.img}/>
+            <img src={`img/cardItem/${imageId}.png`} alt="cardItem" className={styles.img}/>
         </div>
         <div className={styles.content}>
             <div className={styles.content__top}>
