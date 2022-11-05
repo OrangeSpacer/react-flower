@@ -10,6 +10,7 @@ export enum CartActionTypes{
     FECTH_CART_ERROR = "FECTH_CART_ERROR",
     DELETE_CART_ITEM = "DELETE_CART_ITEM",
     ADD_CART_ITEM = "ADD_CART_ITEM",
+    ADD_QUNATITY_ITEM_CART = "ADD_QUANTITY_ITEM_CART"
 }
 
 interface FetchCartAction{
@@ -31,7 +32,12 @@ interface DeleteCartItemAction{
 }
 
 interface AddCartItemAction{
-    type: CartActionTypes.ADD_CART_ITEM
+    type: CartActionTypes.ADD_CART_ITEM,
+    payload: any[]
 }
 
-export type cartAction = FetchCartAction | FetchCartSuccessAction | FecthCartErrorAction | DeleteCartItemAction | AddCartItemAction
+interface AddQuantityItemAction{
+    type: CartActionTypes.ADD_QUNATITY_ITEM_CART
+}
+
+export type cartAction = FetchCartAction | FetchCartSuccessAction | FecthCartErrorAction | DeleteCartItemAction | AddCartItemAction | AddQuantityItemAction

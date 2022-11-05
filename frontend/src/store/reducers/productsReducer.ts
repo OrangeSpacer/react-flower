@@ -14,6 +14,8 @@ export const productsReducer = (state = initialStore,action:productsAction): Pro
             return {...state,loading:false,items: action.payload}
         case ProductsAtionTypes.FETCH_PRODUCTS_ERROR:
             return {...state,error:action.payload}
+        case ProductsAtionTypes.DETELE_ITEM_ON_CART:
+            return {...state}
         default:
             return state
     }

@@ -19,3 +19,13 @@ export const fetchProducts = ():any => {
         }
     }
 }
+
+export const deleteItemOnCart = (id:string,inCart:boolean):any => {
+    return async() => {
+        try{
+            await axios.put('/api/catalog/change',{id,inCart})
+        }catch(e){
+            console.log('Не удалось удалить товар')
+        }
+    }
+}

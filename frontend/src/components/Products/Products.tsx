@@ -55,7 +55,6 @@ const Products = ({products}:ProductsProps) => {
     }
 
     const formatChecked = format.filter((item) => item.checked).map(item => item.backedValue)
-    console.log(formatChecked)
     if(formatChecked.length){
       updateList = updateList.filter(item => formatChecked.includes(item.tags.format))
     }
@@ -96,7 +95,7 @@ const Products = ({products}:ProductsProps) => {
               <Filter light={light} setLight={handleLightChecked} format={format} setFormat={handleFormatChecked} colors={colors} defaultPrice={selectedPrice} searchValue={searchInput} defaultFilter={defaultFilter} setColor={handlerColorsChecked} setInputValue={handleInputValue} setPrice={handleSelectPrice}/>
             </div>
             <div className={styles.items}>
-              {list.map((item:any) => <ItemCard key={item._id} imgLink={item.imageId} name={item.nameItem} price={item.cost} width='255' height='335'/>)}
+              {list.map((item:any) => <ItemCard key={item._id} id={item._id} inCart={item.inCart}  imgLink={item.imageId} name={item.nameItem} price={item.cost} width='255' height='335'/>)}
             </div>
           </div>
         </Container>

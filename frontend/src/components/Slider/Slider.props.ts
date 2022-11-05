@@ -5,5 +5,6 @@ export interface SliderProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEle
         name: string
         imgLink: string,
         price: string,
+        _id:string,
         colorless: boolean}[]
 }

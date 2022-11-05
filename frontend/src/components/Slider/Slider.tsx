@@ -36,7 +36,7 @@ const Slider = ({itemsArray}:SliderProps) => {
       >
         {itemsArray.map((item,index) => 
           <SwiperSlide key={index} className={styles.slide}>
-            <ItemCard colorless={item.colorless} imgLink={item.imgLink} name={item.name} price={item.price}/>
+            <ItemCard id={item._id} inCart={false} colorless={item.colorless} imgLink={item.imgLink} name={item.name} price={item.price}/>
           </SwiperSlide>
         )}
         <div className={cn("swiper-button-prev",styles.prev)} id='prev'>

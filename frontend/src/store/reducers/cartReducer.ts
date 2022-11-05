@@ -15,8 +15,10 @@ export const cartReducer = (state = initialStore,action:cartAction): CartState =
         case CartActionTypes.FECTH_CART_ERROR:
             return {...state,error:action.payload}
         case CartActionTypes.ADD_CART_ITEM:
-            return {...state}
+            return {...state,items:action.payload}
         case CartActionTypes.DELETE_CART_ITEM:
+            return {...state}
+        case CartActionTypes.ADD_QUNATITY_ITEM_CART:
             return {...state}
         default:
             return state

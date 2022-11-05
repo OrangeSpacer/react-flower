@@ -4,5 +4,8 @@ export interface CartItemProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivE
     title:string,
     cost: string,
     imageId:string,
-    _id?:string
+    quantity: number,
+    deleteItem: any,
+    changeTotalPrice: any,
+    id:string
 }

@@ -1,22 +1,25 @@
 import { useEffect, useState } from 'react'
+import { useAction } from '../../../hooks/useAction'
 import Counter from '../../UI/Counter/Counter'
 
 
 import styles from './CartItem.module.scss'
 import { CartItemProps } from './CartItem.props'
 
-const CartItem = ({cost,imageId,title}:CartItemProps) => {
-    const [count,setCount] = useState('1')
+const CartItem = ({cost,imageId,title,quantity,id,deleteItem,changeTotalPrice}:CartItemProps) => {
+    const {addQunatityItemCart} = useAction()
+    const [count,setCount] = useState(quantity)
     const [costItem,setCostItem] = useState<string>(cost)
 
     useEffect(() => {
         const handleCost = () => {
-            let newCost:string = String(parseInt(cost)*parseInt(count))
+            let newCost:string = String(parseInt(cost)*count)
+            changeTotalPrice(id,count)
+            addQunatityItemCart(id,count)
             setCostItem(newCost)
         }
         handleCost()
-    },[count,cost])
-
+    },[count,cost,id,changeTotalPrice,addQunatityItemCart])
 
     return (
     <div className={styles.cartItem}>
@@ -33,8 +36,8 @@ const CartItem = ({cost,imageId,title}:CartItemProps) => {
                 </div>
             </div>
             <div className={styles.content__bottom}>
-                <Counter value={count} setValue={setCount}/>
-                <button className={styles.delete}>
+                <Counter value={String(count)} setValue={setCount}/>
+                <button className={styles.delete} onClick={() => deleteItem(id)}>
                     удалить
                 </button>
             </div>
