@@ -6,7 +6,8 @@ const ctalogSchema = mongoose.Schema({
             imageId:{type:String,required: true},
             nameItem:{type:String,required: true},
             tags: {type:Object,required:true},
-            cost:{type:String,required: true}
+            cost:{type:String,required: true},
+            inCart:{type:Boolean,default:false}
         }
     ]
 },{

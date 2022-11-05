@@ -1,6 +1,6 @@
 import asyncHandler from "express-async-handler"
 import Catalog from "../../models/catalogModel.js"
-
+import Cart from "../../models/cartModel.js"
 
 // @desc Create new catalog
 // @route POST /api/catalog/add
@@ -35,6 +35,29 @@ export const getCatalog = asyncHandler(async(req,res) => {
     res.json({catalogItems})
 })
 
+export const updateitemCatalogInCart = asyncHandler(async(req,res) => {
+    const {inCart,id} = req.body
+    
+    const catalogItems = await Catalog.find({})
+    const cartItems = await Cart.find({})
+
+    if(cartItems.findIndex(item => item._id == id)>-1){
+        const changeItemId = catalogItems[0].items.findIndex(item => item._id.toString() == id)
+        
+        catalogItems[0].items[changeItemId].inCart = true
+    
+        const updateItem = await catalogItems[0].save()
+    
+        res.json(updateItem)
+    }else{
+        catalogItems[0].items.forEach(item => item.inCart = false)
+    
+        const updateItem = await catalogItems[0].save()
+    
+        res.json(updateItem)
+    }
+
+})
 
 // @desc Update Catalog
 // @route POST /api/catalog/change

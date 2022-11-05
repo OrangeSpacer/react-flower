@@ -19,7 +19,7 @@ export const getItemCart = asyncHandler(async (req,res) => {
     const cartItems = await  Cart.find()
 
     const totalPrice = cartItems.reduce((acc,item) => {
-        acc+=parseInt(item.cost)
+        acc+=parseInt(item.cost)*parseInt(item.quantity)
         return acc
     },0)
 
@@ -30,9 +30,20 @@ export const getItemCart = asyncHandler(async (req,res) => {
 export const deleteItemCart = asyncHandler(async (req,res) => {
     const {itemId} = req.body
 
-    const item = await Cart.findByIdAndRemove(itemId)
-
+    await Cart.findByIdAndRemove(itemId)
 
     res.json({"message":`Данный товар удален`})
+})
 
+
+export const changeQuantity = asyncHandler(async (req,res) => {
+    const {itemId,quantity} = req.body
+
+    const item = await Cart.findById(itemId)
+
+    item.quantity = quantity
+
+    const updateItemQunatity = await item.save()
+
+    res.json(updateItemQunatity)
 })

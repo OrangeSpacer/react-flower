@@ -10,6 +10,6 @@ const cartSchema = mongoose.Schema({
     minimize:false,
 })
 
-const Cart= mongoose.model('CartItem',cartSchema)
+const Cart= mongoose.model('Cart',cartSchema)
 
 export default Cart
