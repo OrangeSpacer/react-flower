@@ -25,7 +25,10 @@ const Catalog = () => {
   return (
     <div>
       <CatalogMain/>
-      <Products products={items}/>
+      {loading ? 
+        <h1>Загрузка</h1>:
+        <Products products={items}/>
+      }
     </div>
   )
 }

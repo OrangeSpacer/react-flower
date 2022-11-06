@@ -37,6 +37,7 @@ interface FetchProductsSetNewAction{
 
 interface DeleteItemOnCart{
     type: ProductsAtionTypes.DETELE_ITEM_ON_CART,
+    payload: []
 }
 
 export type productsAction = FetchProductsAction | FetchProductsSuccessAction | FetchProductsErrorAction | FetchProductsSetNewAction | FetchProductsSetAction | DeleteItemOnCart

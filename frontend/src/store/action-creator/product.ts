@@ -20,10 +20,15 @@ export const fetchProducts = ():any => {
     }
 }
 
-export const deleteItemOnCart = (id:string,inCart:boolean):any => {
-    return async() => {
+export const changeStateItemOnCart = (id:string,inCart:boolean):any => {
+    return async(dispatch: Dispatch<productsAction>) => {
         try{
-            await axios.put('/api/catalog/change',{id,inCart})
+            const {data} = await axios.put('/api/catalog/change',{id,inCart})
+            console.log(data[0].items)
+            dispatch({
+                type: ProductsAtionTypes.DETELE_ITEM_ON_CART,
+                payload: data[0].items
+            })
         }catch(e){
             console.log('Не удалось удалить товар')
         }

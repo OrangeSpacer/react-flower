@@ -15,7 +15,7 @@ export const productsReducer = (state = initialStore,action:productsAction): Pro
         case ProductsAtionTypes.FETCH_PRODUCTS_ERROR:
             return {...state,error:action.payload}
         case ProductsAtionTypes.DETELE_ITEM_ON_CART:
-            return {...state}
+            return {...state,items:action.payload}
         default:
             return state
     }

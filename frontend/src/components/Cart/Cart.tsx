@@ -10,7 +10,7 @@ import styles from './Cart.module.scss'
 
 
 const Cart = ({open,setOpen}:CartProps) => {
-  const {fetchCart,deleteItemCart} = useAction()
+  const {fetchCart,deleteItemCart,addQunatityItemCart,changeStateItemOnCart,fetchProducts} = useAction()
   const {items} = useTypesSelector(state => state.cart)
   const [cartItems,setCartItems]:any = useState([])
   const [totalPrice,setTotalPrice] = useState(0)
@@ -22,16 +22,21 @@ const Cart = ({open,setOpen}:CartProps) => {
     fetchCart()
   },[items.length])
 
+  const handleQunatityNumber = (id:string,qunatity:number) => {
+    addQunatityItemCart(id,qunatity)
+  }
+
   useEffect(() => {
     if(items[0]?.cartItems){
       setCartItems(items[0].cartItems)
       setTotalPrice(items[0].totalPrice)
     }
-  },[items.length])
+  },[items])
 
 
   const deleteItem = (id:string) => {
     const newCartItems = cartItems.filter((item:any) => item._id!==id)
+    changeStateItemOnCart(id,false)
     deleteItemCart(id)
     setCartItems(newCartItems)
   }
@@ -67,7 +72,7 @@ const Cart = ({open,setOpen}:CartProps) => {
       {cartItems.length ? 
         <>
           <div className={styles.cartItems}>
-            {cartItems.map((item:any) => <CartItem key={item._id} id={item._id} changeTotalPrice={handeleAddQuantity} deleteItem={deleteItem} quantity={item.quantity} cost={item.cost} imageId={item.imageId} title={item.title}/>)}
+            {cartItems.map((item:any) => <CartItem key={item._id} id={item._id} changeQunatity={handleQunatityNumber} changeTotalPrice={handeleAddQuantity} deleteItem={deleteItem} quantity={item.quantity} cost={item.cost} imageId={item.imageId} title={item.title}/>)}
           </div>
           <div className={styles.btnBlock}>
             <div>

@@ -6,8 +6,7 @@ import Counter from '../../UI/Counter/Counter'
 import styles from './CartItem.module.scss'
 import { CartItemProps } from './CartItem.props'
 
-const CartItem = ({cost,imageId,title,quantity,id,deleteItem,changeTotalPrice}:CartItemProps) => {
-    const {addQunatityItemCart} = useAction()
+const CartItem = ({cost,imageId,title,quantity,id,deleteItem,changeQunatity,changeTotalPrice}:CartItemProps) => {
     const [count,setCount] = useState(quantity)
     const [costItem,setCostItem] = useState<string>(cost)
 
@@ -15,11 +14,14 @@ const CartItem = ({cost,imageId,title,quantity,id,deleteItem,changeTotalPrice}:C
         const handleCost = () => {
             let newCost:string = String(parseInt(cost)*count)
             changeTotalPrice(id,count)
-            addQunatityItemCart(id,count)
             setCostItem(newCost)
         }
         handleCost()
-    },[count,cost,id,changeTotalPrice,addQunatityItemCart])
+    },[count,cost,id,changeTotalPrice])
+
+    useEffect(() => {
+        changeQunatity(id,count)
+    },[quantity])
 
     return (
     <div className={styles.cartItem}>
