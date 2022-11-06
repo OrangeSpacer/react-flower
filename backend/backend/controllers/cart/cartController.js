@@ -40,10 +40,11 @@ export const changeQuantity = asyncHandler(async (req,res) => {
     const {itemId,quantity} = req.body
 
     const item = await Cart.findById(itemId)
-
-    item.quantity = quantity
-
-    const updateItemQunatity = await item.save()
-
-    res.json(updateItemQunatity)
+    if(itemId){
+        item.quantity = quantity
+    
+        const updateItemQunatity = await item.save()
+    
+        res.json(updateItemQunatity)
+    }
 })

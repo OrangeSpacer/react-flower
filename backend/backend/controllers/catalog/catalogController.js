@@ -36,27 +36,20 @@ export const getCatalog = asyncHandler(async(req,res) => {
 })
 
 export const updateitemCatalogInCart = asyncHandler(async(req,res) => {
-    const {inCart,id} = req.body
-    
     const catalogItems = await Catalog.find({})
     const cartItems = await Cart.find({})
 
-    if(cartItems.findIndex(item => item._id == id)>-1){
-        const changeItemId = catalogItems[0].items.findIndex(item => item._id.toString() == id)
-        
-        catalogItems[0].items[changeItemId].inCart = true
-    
-        const updateItem = await catalogItems[0].save()
-    
-        res.json(updateItem)
-    }else{
-        catalogItems[0].items.forEach(item => item.inCart = false)
-    
-        const updateItem = await catalogItems[0].save()
-    
-        res.json(updateItem)
-    }
-
+    catalogItems[0].items.forEach((item,index) => {
+        let newId = cartItems.findIndex(i => i._id.toString() == item._id.toString())
+        if(newId > -1){
+            catalogItems[0].items[index].inCart = true
+        }else{
+            catalogItems[0].items[index].inCart = false
+        }
+    })
+    await catalogItems[0].save()
+    console.log(catalogItems)
+    res.json(catalogItems)
 })
 
 // @desc Update Catalog
