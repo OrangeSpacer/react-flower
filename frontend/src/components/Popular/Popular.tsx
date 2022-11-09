@@ -8,14 +8,14 @@ import Title from '../UI/Title/Titiel'
 import styles from  './Popular.module.scss'
 
 const Popular = () => {
-  const {fetchProducts,addItemCart} = useAction()
-  const {items} = useTypesSelector(state => state.cart)
+  const {fetchProducts} = useAction()
+  const {items} = useTypesSelector(state => state.products)
   
   useEffect(() => {
     fetchProducts()
   },[])
 
-  
+  console.log(items.slice(0,3))
   
   return (
     <Container>

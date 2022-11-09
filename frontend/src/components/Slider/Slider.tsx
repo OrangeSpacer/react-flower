@@ -11,6 +11,7 @@ import "swiper/scss/navigation";
 import styles from './Slider.module.scss'
 
 const Slider = ({itemsArray}:SliderProps) => {
+  console.log(itemsArray)
   return (
     <div className={styles.sliderBlock}>
       <Swiper 
@@ -36,7 +37,7 @@ const Slider = ({itemsArray}:SliderProps) => {
       >
         {itemsArray.map((item,index) => 
           <SwiperSlide key={index} className={styles.slide}>
-            <ItemCard id={item._id} inCart={false} colorless={item.colorless} imgLink={item.imgLink} name={item.name} price={item.price}/>
+            <ItemCard id={item._id} inCart={item.inCart} colorless={item.colorless} imgLink={item.imageId} name={item.nameItem} price={item.cost}/>
           </SwiperSlide>
         )}
         <div className={cn("swiper-button-prev",styles.prev)} id='prev'>
