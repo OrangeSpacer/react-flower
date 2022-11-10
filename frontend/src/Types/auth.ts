@@ -1,3 +1,5 @@
+import { type } from "os"
+
 export interface AuthState {
     auth: boolean,
     loading: boolean,
@@ -8,7 +10,10 @@ export enum AuthActionTypes {
     FETCH_AUTH = "FETCH_AUTH",
     FETCH_AUTH_ERROR = "FETCH_AUTH_ERROR",
     FETCH_AUTH_SUCCESS = "FETCH_AUTH_SUCCESS",
-    POST_AUTH = "POST_AUTH"
+    LOGIN_AUTH = "LOGIN_AUTH",
+    LOGOUT_AUTH = "LOGOUT_AUTH",
+    REGISTER_AUTH = "REGISTER_AUTH"
+
 }
 
 interface FetchAuthState{
@@ -25,4 +30,19 @@ interface FetchAuthSuccessState{
     payload: boolean
 }
 
-export type authAction = FetchAuthErrorState | FetchAuthState | FetchAuthSuccessState
+interface FetchLoginAuth{
+    type: AuthActionTypes.LOGIN_AUTH,
+    payload: boolean
+}
+
+interface FetchRegisterAuth{
+    type: AuthActionTypes.REGISTER_AUTH,
+    payload:boolean
+}
+
+interface FetchLogoutAuth{
+    type: AuthActionTypes.LOGOUT_AUTH,
+    payload: boolean
+}
+
+export type authAction = FetchAuthErrorState | FetchAuthState | FetchAuthSuccessState | FetchLoginAuth | FetchLogoutAuth | FetchRegisterAuth

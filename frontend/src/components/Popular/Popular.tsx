@@ -15,8 +15,6 @@ const Popular = () => {
     fetchProducts()
   },[])
 
-  console.log(items.slice(0,3))
-  
   return (
     <Container>
         <div className={styles.popular}>

@@ -15,6 +15,12 @@ export const authReducer = (state = initialState,action: authAction): AuthState 
             return {...state,auth:action.payload}
         case AuthActionTypes.FETCH_AUTH_ERROR:
             return {...state,error: action.payload}
+        case AuthActionTypes.LOGIN_AUTH:
+            return {...state,auth: action.payload}
+        case AuthActionTypes.LOGOUT_AUTH:
+            return {...state,auth: action.payload}
+            case AuthActionTypes.REGISTER_AUTH:
+                return {...state,auth: action.payload}
         default:
             return state
     }

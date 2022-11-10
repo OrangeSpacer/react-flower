@@ -11,7 +11,6 @@ import "swiper/scss/navigation";
 import styles from './Slider.module.scss'
 
 const Slider = ({itemsArray}:SliderProps) => {
-  console.log(itemsArray)
   return (
     <div className={styles.sliderBlock}>
       <Swiper 
