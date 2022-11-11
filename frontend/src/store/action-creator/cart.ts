@@ -54,3 +54,26 @@ export const addQunatityItemCart = (itemId:string,quantity:number): any => {
         }
     }
 }
+
+export const cartOffer = (items:any[],orderId:string) => {
+    return async(dispatch: Dispatch<cartAction>) => {
+        try{
+            const token = localStorage.getItem('token')
+            await axios.post('/api/order',{
+                items: items,
+                orderId: orderId,
+            },{headers:{
+                Authorization: 'Bearer ' + token
+            }})
+            dispatch({
+                type:CartActionTypes.FETCH_CART_SUCCESS,
+                payload: []
+            })
+        }catch(e:any){
+            dispatch({
+                type: CartActionTypes.FECTH_CART_ERROR,
+                payload: e.response.data.message
+            })
+        }
+    }
+}

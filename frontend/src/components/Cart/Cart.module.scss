@@ -32,6 +32,24 @@
     justify-content: space-between;
 }
 
+.empty{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.emptyTitle{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.emptyImg{
+    width: 250px;
+    height: 250px;
+}
+
 .btnBlock{
     text-align: center;
     padding: 30px 30px;

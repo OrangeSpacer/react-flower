@@ -9,13 +9,13 @@ const ItemCard = ({colorless = false,imgLink,price,id,inCart,name,height='450',w
     const {addItemCart,deleteItemCart,fetchCart,changeStateItemOnCart} = useAction()
     const addItem = () => {
         addItemCart(name,price,'1',imgLink,id)
-        changeStateItemOnCart(id,true)
+        changeStateItemOnCart(id)
     }
 
     const removeItem = () => {
         deleteItemCart(id)
         fetchCart()
-        changeStateItemOnCart(id,false)
+        changeStateItemOnCart(id)
     }
 
 

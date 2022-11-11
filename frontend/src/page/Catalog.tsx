@@ -5,7 +5,7 @@ import { useAction } from "../hooks/useAction"
 import { useTypesSelector } from "../hooks/useTypesSelector"
 
 const Catalog = () => {
-  const {fetchProducts} = useAction()
+  const {fetchProducts,changeStateItemOnCart} = useAction()
   const {error,items,loading} = useTypesSelector(state => state.products)
 
   useEffect(() => {

@@ -10,10 +10,11 @@ import styles from './Cart.module.scss'
 
 
 const Cart = ({open,setOpen}:CartProps) => {
-  const {fetchCart,deleteItemCart,addQunatityItemCart,changeStateItemOnCart,fetchProducts} = useAction()
+  const {fetchCart,deleteItemCart,addQunatityItemCart,changeStateItemOnCart,cartOffer} = useAction()
   const {items} = useTypesSelector(state => state.cart)
   const [cartItems,setCartItems]:any = useState([])
   const [totalPrice,setTotalPrice] = useState(0)
+  const [orderComplete,setOrderComplete]:any = useState(false)
   const handleCloseCart = () => {
     setOpen(false)
   }
@@ -33,10 +34,19 @@ const Cart = ({open,setOpen}:CartProps) => {
     }
   },[items])
 
+  const handleOffer = () => {
+    cartOffer(cartItems,`#${Math.floor(Math.random()*1000)}`)
+    cartItems.forEach((item:any) => {
+      deleteItem(item._id)
+    })
+    setOrderComplete(true)
+    setTimeout(() => setOrderComplete(false),5000)
+  }
+
 
   const deleteItem = (id:string) => {
     const newCartItems = cartItems.filter((item:any) => item._id!==id)
-    changeStateItemOnCart(id,false)
+    changeStateItemOnCart(id)
     deleteItemCart(id)
     setCartItems(newCartItems)
   }
@@ -78,10 +88,16 @@ const Cart = ({open,setOpen}:CartProps) => {
             <div>
               Предварительный итог: {totalPrice} РУБ.
             </div>
-            <Button children='Оформить заказ' type='cart'/>
+            <Button children='Оформить заказ' type='cart' onClick={handleOffer}/>
           </div>
         </>:
-        null 
+        <div className={styles.empty}>
+          <div className={styles.emptyTitle}>
+            {!orderComplete ? 
+            'Ваша корзина пуста':'Спасибо за заказ'}
+          </div>
+          <img src={!orderComplete ? 'img/cart/empty.png':''} alt="empty-cart" className={styles.emptyImg}/>
+        </div>
       }
     </div>
   )
