@@ -9,11 +9,11 @@ const ordersSchema = mongoose.Schema({
             required: true, 
             type:String
         },
-        nameItem: {
+        title: {
             required: true, 
             type: String
         },
-        value: {
+        quantity: {
             required: true, 
             type:String
         },
