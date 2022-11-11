@@ -32,6 +32,10 @@ export const loginAuth = (email:string,password:string) => {
                 payload: true
             })
             localStorage.setItem('token',data.token)
+            dispatch({
+                type: AuthActionTypes.FETCH_AUTH_ERROR,
+                payload: ''
+            })
         }catch(e:any){
             dispatch({
                 type: AuthActionTypes.FETCH_AUTH_ERROR,
@@ -70,6 +74,10 @@ export const registerAuth = (email:string,password:string) => {
             dispatch({
                 type: AuthActionTypes.REGISTER_AUTH,
                 payload: true
+            })
+            dispatch({
+                type: AuthActionTypes.FETCH_AUTH_ERROR,
+                payload: ''
             })
         }catch(e:any){
             dispatch({

@@ -26,7 +26,7 @@ const Auth = () => {
         if(auth){
             history('/profile')
         }
-    },[auth])
+    },[auth,history])
 
     const handleRegister = () => {
         registerAuth(email,password)
@@ -55,9 +55,9 @@ const Auth = () => {
                 <div className={styles.title}>
                     <Title title='Регистрация/Вход' titleSide='l'/>
                 </div>
-                {error ? <div>{error}</div> : null}
                 <div className={styles.content}>
                     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+                        {error ? <div className={styles.backError}>{error}</div> : null}
                         <div className={styles.inputBlock}>
                             <p className={styles.error}>{errors.Email?.message}</p>
                             <input className={styles.input} value={email} {...register("Email",{required:"Введите ваш Email",pattern:{value:/^[^\s@]+@[^\s@]+\.[^\s@]+$/,message:'Введите корректное имя'},onChange:handleEmail})} placeholder='Ваш Email'/>

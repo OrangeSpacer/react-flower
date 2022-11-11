@@ -32,6 +32,16 @@
     border: 2px solid $black-green;
 }
 
+.backError{
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 5px 0;
+    font-size: 18px;
+    color: white;
+    background: $error;
+    transition: all 0.5s ease;
+}
+
 .buttonsBlock{
     display: flex;
     flex-wrap: wrap;
