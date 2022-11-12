@@ -5,7 +5,8 @@ export interface ItemCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivE
     imgLink: string,
     price: string,
     id:string,
-    inCart:boolean,
+    interaction?: boolean,
+    inCart?:boolean,
     width?: string,
     height?: string,
     colorless?: boolean
