@@ -3,6 +3,7 @@ import { BrowserRouter,Route,Routes } from "react-router-dom";
 import RootLayout from "./components/RootLayout/RootLayout";
 import { useAction } from "./hooks/useAction";
 import { useTypesSelector } from "./hooks/useTypesSelector";
+import About from "./page/About/About";
 import Auth from "./page/Auth/Auth";
 import Catalog from "./page/Catalog";
 import Delivery from "./page/Delivery/Delivery";
@@ -25,6 +26,7 @@ function App() {
               <Route path="/" element={<Home/>}/>
               <Route path="/catalog" element={<Catalog/>}/>
               <Route path="/delivery" element={<Delivery/>}/>
+              <Route path="/about" element={<About/>}/>
             </Routes>
           </RootLayout>
         </BrowserRouter>
