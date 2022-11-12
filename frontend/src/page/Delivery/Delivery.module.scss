@@ -1,0 +1,72 @@
+@import '../../styles/variables';
+
+.delivery{
+    position: relative;
+    margin-top: 120px;
+    padding: 0 15px;
+}
+
+.imgTop{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.imgMiddle{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    z-index: -2000;
+}
+
+.imgBottom{
+    position: absolute;
+    bottom: -100px;
+    right: 0;
+    z-index: -20000;
+}
+
+.title{
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $light-pink;
+}
+
+.block{
+    margin-bottom: 100px;
+}
+
+.cardBlock{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.moreInfoBlock{
+    margin-bottom: 100px;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+}
+
+.moreInfo{
+    &:not(:last-child){
+        margin-bottom: 30px;
+    }
+}
+
+.textBlock{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.04em;
+    color: $white;
+}

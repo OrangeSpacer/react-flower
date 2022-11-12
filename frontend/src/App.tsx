@@ -5,6 +5,7 @@ import { useAction } from "./hooks/useAction";
 import { useTypesSelector } from "./hooks/useTypesSelector";
 import Auth from "./page/Auth/Auth";
 import Catalog from "./page/Catalog";
+import Delivery from "./page/Delivery/Delivery";
 import Home from "./page/Home";
 import Profile from "./page/Profile/Profile";
 
@@ -23,6 +24,7 @@ function App() {
               <Route path="/profile" element={<Profile/>}/>
               <Route path="/" element={<Home/>}/>
               <Route path="/catalog" element={<Catalog/>}/>
+              <Route path="/delivery" element={<Delivery/>}/>
             </Routes>
           </RootLayout>
         </BrowserRouter>

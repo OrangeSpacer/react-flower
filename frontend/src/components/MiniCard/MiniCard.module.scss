@@ -1,0 +1,18 @@
+@import '../../styles/variables';
+
+.miniCard{
+    width: 220px;
+    height: 176px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    color: $white;
+    background: rgba(0, 0, 0, 0.2);
+}
