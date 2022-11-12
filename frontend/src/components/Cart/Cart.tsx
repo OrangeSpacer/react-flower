@@ -7,11 +7,12 @@ import Button from '../UI/Button/Button'
 
 import cn from "classnames"
 import styles from './Cart.module.scss'
+import Loader from '../UI/Loader/Loader'
 
 
 const Cart = ({open,setOpen}:CartProps) => {
   const {fetchCart,deleteItemCart,addQunatityItemCart,changeStateItemOnCart,cartOffer} = useAction()
-  const {items} = useTypesSelector(state => state.cart)
+  const {items,loading} = useTypesSelector(state => state.cart)
   const [cartItems,setCartItems]:any = useState([])
   const [totalPrice,setTotalPrice] = useState(0)
   const [orderComplete,setOrderComplete]:any = useState(false)
@@ -79,25 +80,27 @@ const Cart = ({open,setOpen}:CartProps) => {
           <img src="img/header/close.svg" alt="closeCart"/>
         </div>
       </div>
-      {cartItems.length ? 
-        <>
-          <div className={styles.cartItems}>
-            {cartItems.map((item:any) => <CartItem key={item._id} id={item._id} changeQunatity={handleQunatityNumber} changeTotalPrice={handeleAddQuantity} deleteItem={deleteItem} quantity={item.quantity} cost={item.cost} imageId={item.imageId} title={item.title}/>)}
-          </div>
-          <div className={styles.btnBlock}>
-            <div>
-              Предварительный итог: {totalPrice} РУБ.
+      {loading ? 
+        <Loader/>:
+        cartItems.length ? 
+          <>
+            <div className={styles.cartItems}>
+              {cartItems.map((item:any) => <CartItem key={item._id} id={item._id} changeQunatity={handleQunatityNumber} changeTotalPrice={handeleAddQuantity} deleteItem={deleteItem} quantity={item.quantity} cost={item.cost} imageId={item.imageId} title={item.title}/>)}
             </div>
-            <Button children='Оформить заказ' type='cart' onClick={handleOffer}/>
+            <div className={styles.btnBlock}>
+              <div>
+                Предварительный итог: {totalPrice} РУБ.
+              </div>
+              <Button children='Оформить заказ' type='cart' onClick={handleOffer}/>
+            </div>
+          </>:
+          <div className={styles.empty}>
+            <div className={styles.emptyTitle}>
+              {!orderComplete ? 
+              'Ваша корзина пуста':'Спасибо за заказ'}
+            </div>
+            <img src={!orderComplete ? 'img/cart/empty.png':''} alt="empty-cart" className={styles.emptyImg}/>
           </div>
-        </>:
-        <div className={styles.empty}>
-          <div className={styles.emptyTitle}>
-            {!orderComplete ? 
-            'Ваша корзина пуста':'Спасибо за заказ'}
-          </div>
-          <img src={!orderComplete ? 'img/cart/empty.png':''} alt="empty-cart" className={styles.emptyImg}/>
-        </div>
       }
     </div>
   )

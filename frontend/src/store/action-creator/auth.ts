@@ -5,6 +5,7 @@ import { authAction, AuthActionTypes } from "../../Types/auth"
 export const fetchAuth = () => {
     return async(dispatch: Dispatch<authAction>) => {
         try{
+            dispatch({type:AuthActionTypes.FETCH_AUTH})
             const token = localStorage.getItem('token')
             dispatch({
                 type: AuthActionTypes.FETCH_AUTH_SUCCESS,
@@ -23,6 +24,7 @@ export const fetchAuth = () => {
 export const loginAuth = (email:string,password:string) => {
     return async(dispatch: Dispatch<authAction>) => {
         try{
+            dispatch({type:AuthActionTypes.FETCH_AUTH})
             const {data} = await axios.post('/api/user/login',{
                 email:email,
                 password:password
@@ -66,6 +68,7 @@ export const logoutAuth = () => {
 export const registerAuth = (email:string,password:string) => {
     return async(dispatch: Dispatch<authAction>) => {
         try{
+            dispatch({type:AuthActionTypes.FETCH_AUTH})
             const {data} = await axios.post('/api/user',{
                 email:email,
                 password:password

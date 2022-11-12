@@ -11,7 +11,7 @@ export const cartReducer = (state = initialStore,action:cartAction): CartState =
         case CartActionTypes.FETCH_CART:
             return {...state,loading:true}
         case CartActionTypes.FETCH_CART_SUCCESS:
-            return {...state,items:action.payload}
+            return {...state,loading:false,items:action.payload}
         case CartActionTypes.FECTH_CART_ERROR:
             return {...state,error:action.payload}
         case CartActionTypes.ADD_CART_ITEM:

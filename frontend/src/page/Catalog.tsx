@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import CatalogMain from "../components/CatalogMain/CatalogMain"
 import Products from "../components/Products/Products"
+import Loader from "../components/UI/Loader/Loader"
 import { useAction } from "../hooks/useAction"
 import { useTypesSelector } from "../hooks/useTypesSelector"
 
@@ -15,7 +16,7 @@ const Catalog = () => {
   console.log(items)
 
   if(loading){
-    return <h1>Идет загрузка</h1>
+    return <Loader/>
   }
 
   if(error){

@@ -11,7 +11,7 @@ export const orderReducer = (state = initialStore, action: orderAction): OrderSt
         case OrderActionTypes.FETCH_ORDER:
             return {...state,loading:true}
         case OrderActionTypes.FETCH_ORDER_SUCCESS:
-            return {...state,orders: action.payload}
+            return {...state,loading:false,orders: action.payload}
         case OrderActionTypes.FETCH_ORDER_ERROR:
             return {...state,error: action.payload}
         default:

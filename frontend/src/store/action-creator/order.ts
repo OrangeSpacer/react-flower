@@ -5,6 +5,7 @@ import { orderAction, OrderActionTypes } from "../../Types/order"
 export const fetchOrder = () => {
     return async(dispatch: Dispatch<orderAction>) => {
         try{
+            dispatch({type:OrderActionTypes.FETCH_ORDER})
             const token = localStorage.getItem('token')
             const {data} = await axios.get('/api/order/all',{
                 headers: {

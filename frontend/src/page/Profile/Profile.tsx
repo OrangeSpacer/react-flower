@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Container from '../../components/Container/Container'
 import ItemCard from '../../components/ItemCard/ItemCard'
 import Button from '../../components/UI/Button/Button'
+import Loader from '../../components/UI/Loader/Loader'
 import { useAction } from '../../hooks/useAction'
 import { useTypesSelector } from '../../hooks/useTypesSelector'
 
@@ -11,7 +12,7 @@ import styles from './Profile.module.scss'
 const Profile = () => {
     const {logoutAuth,fetchAuth,fetchOrder} = useAction()
     const {auth} = useTypesSelector(state => state.auth)
-    const {error,loading,orders} = useTypesSelector(state => state.order)
+    const {loading,orders} = useTypesSelector(state => state.order)
     const history = useNavigate()
 
     useEffect(() => {
@@ -24,12 +25,16 @@ const Profile = () => {
         fetchOrder()
     },[])
 
-    console.log(orders)
 
     const handleLogout = () => {
         logoutAuth()
         fetchAuth()
     }
+
+    if(loading){
+        return <Loader/>
+    }
+
     return (
         <div className={styles.profile}>
             <Container>

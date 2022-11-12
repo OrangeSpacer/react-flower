@@ -10,12 +10,10 @@ import Profile from "./page/Profile/Profile";
 
 function App() {
   const {auth} = useTypesSelector(state => state.auth)
-  const {fetchAuth,loginAuth,logoutAuth,registerAuth} = useAction()
+  const {fetchAuth} = useAction()
   useEffect(() => {
     fetchAuth()
-    // logoutAuth()
   },[auth])
-  console.log(auth)
   return (
     <div className="App">
         <BrowserRouter>
