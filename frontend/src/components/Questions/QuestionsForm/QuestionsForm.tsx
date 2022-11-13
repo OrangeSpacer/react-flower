@@ -19,6 +19,7 @@ const QuestionsForm = () => {
     const {register, handleSubmit, formState: {errors}} = useForm<IFormInputs>()
     const [phone,setPhone] = useState('')
     const [name,setName] = useState('')
+    const [comment,setComment] = useState('')
     const [send,setSend] = useState(true)
 
     const handlePhone = (e:any) => {
@@ -31,6 +32,11 @@ const QuestionsForm = () => {
         setName(nameValue)
     }
 
+
+    const handleComment = (e:any) => {
+        let comment = e.target.value
+        setComment(comment)
+    }
 
     const onSubmit: SubmitHandler<IFormInputs> = (data) => {
         if(send === true){
@@ -47,6 +53,7 @@ const QuestionsForm = () => {
             setSend(true)
             setPhone('')
             setName('')
+            setComment('')
         }
     }
 
@@ -80,7 +87,7 @@ const QuestionsForm = () => {
                     {...register("Phone", { required: "Введите корректный телефон",onChange:handlePhone})}
                 />
             </div>
-            <textarea {...register("Message")} className={cn(styles.input,styles.textarea)} placeholder="Ваш коммпентарий"/>
+            <textarea value={comment} {...register("Message",{onChange:handleComment})} className={cn(styles.input,styles.textarea)} placeholder="Ваш коммпентарий"/>
             <Button type="default" onClick={checkForm}>
                 Отправить
             </Button>

@@ -2,6 +2,7 @@ import Container from '../../components/Container/Container'
 import Accordion from '../../components/UI/Accordion/Accordion'
 import Title from '../../components/UI/Title/Titiel'
 
+import cn from "classnames"
 import styles from './FAQ.module.scss'
 
 const FAQ = () => {
@@ -22,6 +23,8 @@ const FAQ = () => {
                     <Accordion content={accordionContent}/>
                 </div>
             </Container>
+            <img src="img/FAQ/left.png" alt="flower" className={cn(styles.flower,styles.left)}/>
+            <img src="img/FAQ/right.png" alt="flower" className={cn(styles.flower,styles.right)}/>
         </div>
     )
 }

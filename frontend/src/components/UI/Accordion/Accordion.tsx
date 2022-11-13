@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 import cn from "classnames"
 import styles from './Accordion.module.scss'
+import React from 'react'
 
 const Accordion = ({content}:AccordionProps):JSX.Element => {
     const [active,setActive] = useState(-1)
@@ -18,9 +19,9 @@ const Accordion = ({content}:AccordionProps):JSX.Element => {
     return (
     <div className={styles.accordion}>
         {content.map((item,index) => 
-        <>
-            <div className={styles.block}>
-                <div key={index} className={styles.heading} onClick={() => handleActiveItem(index)}>
+        <React.Fragment key={index}>
+            <div key={index} className={styles.block}>
+                <div className={styles.heading} onClick={() => handleActiveItem(index)}>
                     <div className={styles.title}>
                         {item.title}
                     </div>
@@ -36,7 +37,7 @@ const Accordion = ({content}:AccordionProps):JSX.Element => {
                     </div>
                 </div>
             </div>
-        </>
+        </React.Fragment>
         )}
     </div>
     )
