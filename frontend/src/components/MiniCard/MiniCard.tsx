@@ -2,10 +2,13 @@ import { MiniCardProps } from './MiniCard.props'
 
 import styles from './MiniCard.module.scss'
 
-const MiniCard = ({children}:MiniCardProps):JSX.Element => {
+const MiniCard = ({children,title}:MiniCardProps):JSX.Element => {
   return (
     <div className={styles.miniCard}>
-        {children}
+      <div className={styles.title}>
+        {title}
+      </div>
+      {children}
     </div>
   )
 }
