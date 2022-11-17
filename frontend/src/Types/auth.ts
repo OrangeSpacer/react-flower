@@ -1,11 +1,13 @@
 export interface AuthState {
     auth: boolean,
+    role: string,
     loading: boolean,
     error: null | string
 }
 
 export enum AuthActionTypes {
     FETCH_AUTH = "FETCH_AUTH",
+    USER_ROLE = "USER_ROLE",
     FETCH_AUTH_ERROR = "FETCH_AUTH_ERROR",
     FETCH_AUTH_SUCCESS = "FETCH_AUTH_SUCCESS",
     LOGIN_AUTH = "LOGIN_AUTH",
@@ -20,6 +22,11 @@ interface FetchAuthState{
 
 interface FetchAuthErrorState{
     type: AuthActionTypes.FETCH_AUTH_ERROR,
+    payload: string
+}
+
+interface UserRoleState{
+    type: AuthActionTypes.USER_ROLE,
     payload: string
 }
 
@@ -43,4 +50,4 @@ interface FetchLogoutAuth{
     payload: boolean
 }
 
-export type authAction = FetchAuthErrorState | FetchAuthState | FetchAuthSuccessState | FetchLoginAuth | FetchLogoutAuth | FetchRegisterAuth
+export type authAction = FetchAuthErrorState | FetchAuthState | FetchAuthSuccessState | FetchLoginAuth | FetchLogoutAuth | FetchRegisterAuth | UserRoleState

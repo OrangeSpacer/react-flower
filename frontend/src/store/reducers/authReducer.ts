@@ -2,6 +2,7 @@ import { authAction, AuthActionTypes, AuthState } from "../../Types/auth"
 
 const initialState: AuthState = {
     auth:false,
+    role: "USER",
     loading:false,
     error:null
 }
@@ -17,6 +18,8 @@ export const authReducer = (state = initialState,action: authAction): AuthState 
             return {...state,error: action.payload}
         case AuthActionTypes.LOGIN_AUTH:
             return {...state,loading:false,auth: action.payload}
+        case AuthActionTypes.USER_ROLE:
+            return {...state, role:action.payload}
         case AuthActionTypes.LOGOUT_AUTH:
             return {...state,auth: action.payload}
             case AuthActionTypes.REGISTER_AUTH:

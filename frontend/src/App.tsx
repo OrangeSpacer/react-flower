@@ -1,39 +1,37 @@
 import { useEffect } from "react";
-import { BrowserRouter,Route,Routes } from "react-router-dom";
+import { Route,Routes, useLocation } from "react-router-dom";
 import RootLayout from "./components/RootLayout/RootLayout";
 import { useAction } from "./hooks/useAction";
 import { useTypesSelector } from "./hooks/useTypesSelector";
-import About from "./page/About/About";
-import Auth from "./page/Auth/Auth";
-import Catalog from "./page/Catalog";
-import Contact from "./page/Contact/Contact";
-import Delivery from "./page/Delivery/Delivery";
-import FAQ from "./page/FAQ/FAQ";
-import Home from "./page/Home";
+import Admin from "./page/Admin/Admin";
+import NotFound from "./page/NotFound/NotFound";
 import Profile from "./page/Profile/Profile";
+import { routes } from "./routes";
 
 function App() {
-  const {auth} = useTypesSelector(state => state.auth)
+  const {auth,role} = useTypesSelector(state => state.auth)
   const {fetchAuth} = useAction()
+  let location = useLocation()
+  
   useEffect(() => {
     fetchAuth()
   },[auth])
+
+
   return (
     <div className="App">
-        <BrowserRouter>
-          <RootLayout>
-            <Routes>
-              <Route path="/auth" element={<Auth/>}/>
-              <Route path="/profile" element={<Profile/>}/>
-              <Route path="/" element={<Home/>}/>
-              <Route path="/catalog" element={<Catalog/>}/>
-              <Route path="/delivery" element={<Delivery/>}/>
-              <Route path="/about" element={<About/>}/>
-              <Route path="/contacts" element={<Contact/>}/>
-              <Route path="/FAQ" element={<FAQ/>}/>
-            </Routes>
-          </RootLayout>
-        </BrowserRouter>
+      <RootLayout>
+        <Routes>
+          {routes.map((item:any) => {
+            return <Route key={item.path} path={item.path} element={<item.component/>}/>
+          })}
+          {role === "USER" ? 
+              <Route path={"/profile"} element={<Profile/>}/>:
+              <Route path={"/profile"} element={<Admin/>}/>
+          }
+          <Route path={location.pathname} element={<NotFound/>}/>
+        </Routes>
+      </RootLayout>
     </div>
   );
 }

@@ -7,6 +7,14 @@ export const fetchAuth = () => {
         try{
             dispatch({type:AuthActionTypes.FETCH_AUTH})
             const token = localStorage.getItem('token')
+            if(!!token){
+                const {data} = await axios.get('/api/user/profile',{
+                    headers: {
+                        Authorization: 'Bearer ' + token
+                    }
+                })
+                dispatch({type:AuthActionTypes.USER_ROLE,payload:data.role})
+            }
             dispatch({
                 type: AuthActionTypes.FETCH_AUTH_SUCCESS,
                 payload:!!token
