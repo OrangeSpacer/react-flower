@@ -1,0 +1,95 @@
+@import '../../styles/variables';
+
+.notFound{
+    position: relative;
+    padding: 0 15px;
+}
+
+.flower{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -2000;
+}
+
+.numberBlock{
+    display: flex;
+}
+
+.firstNumber{
+    z-index: -30000;
+}
+
+.thirdNumber{
+    z-index: -30000;
+}
+
+
+.number{
+    font-weight: 400;
+    font-size: 600px;
+    line-height: 727px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #163D8F 0%, #163D8F 0%, #4F6CAB 54.69%, #B6CDFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.errorBlock{
+    margin-bottom: 95px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.text{
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $white;
+}
+
+.link{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.04em;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+    color: $main;
+}
+
+@media screen and (max-width:1100px){
+    .number{
+        font-size: 450px;
+    }
+}
+
+@media screen and (max-width:768px){
+    .notFound{
+        height: 950px;
+    }
+    .number{
+        font-size: 250px;
+    }
+    .numberBlock{
+        justify-content: center;
+    }
+    .errorBlock{
+        align-items: center;
+    }
+    .flower{
+        z-index: -50000;
+        filter: brightness(0.5);
+    }
+}
+
+@media screen and (max-width:450px){
+    .number{
+        font-size: 200px;
+    }
+}
