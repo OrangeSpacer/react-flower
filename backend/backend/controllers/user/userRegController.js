@@ -12,7 +12,7 @@ export const userReg = asyncHadler(async(req,res) => {
 
     const user = await User.create({
         email,
-        password
+        password,
     })
 
     const token = generateToken(user._id)

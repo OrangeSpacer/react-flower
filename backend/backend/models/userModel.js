@@ -11,6 +11,10 @@ const userModelSchema = new Schema({
     password: {
         required: true, 
         type: String
+    },
+    role:{
+        type: String,
+        default: "USER"
     }
 },{
     minimize: false,
