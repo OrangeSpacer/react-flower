@@ -33,3 +33,63 @@ export const changeStateItemOnCart = (id:string):any => {
         }
     }
 }
+
+
+
+export const addProductsCatalog = (items:{}[]) => {
+    return async(dispatch: Dispatch<productsAction>) => {
+        try{
+            const token = localStorage.getItem('token')
+            const {data} = await axios.post('/api/catalog/add',{
+                items:items
+            },{
+                headers:{
+                    Authorization: 'Bearer ' + token
+                }
+            })
+            console.log(data)
+            dispatch({
+                type: ProductsAtionTypes.ADD_PRODUCTS_CATALOG,
+                payload: data
+            })
+        }catch(e){
+            console.log(e)
+        }
+    }
+}
+ 
+export const deleteProductsCatalog = ():any => {
+    return async(dispatch: Dispatch<productsAction>) => {
+        try{
+            const token = localStorage.getItem('token')
+            await axios.delete(`/api/catalog`,{
+                headers:{
+                    Authorization: 'Bearer ' + token
+                }
+            })
+            dispatch({
+                type: ProductsAtionTypes.DELETE_PRODUCTS_CATALOG,
+                payload: []
+            })
+        }catch(e){
+            console.log(e)
+        }
+    }
+}
+
+export const addProductItem = (newItems:{}[]) => {
+    return async() => {
+        try{
+            const token = localStorage.getItem('token')
+            await axios.post('/api/catalog/change',{
+                newItems:newItems
+            },{
+                headers:{
+                    Authorization: 'Bearer ' + token
+                }
+            })
+        }catch(e){
+            console.log(e)
+        }
+    }
+}

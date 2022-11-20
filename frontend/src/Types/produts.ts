@@ -1,3 +1,5 @@
+import { type } from "os"
+
 export interface ProductsState {
     items: any[],
     loading: boolean,
@@ -10,7 +12,10 @@ export enum ProductsAtionTypes{
     FETCH_PRODUCTS_ERROR = "FETCH_PRODUCTS_ERROR",
     SET_PRODUCTS = "SET_PRODUCTS",
     DETELE_ITEM_ON_CART = "DETELE_ITEM_ON_CART",
-    SET_CATALOG_NEW = "SET_CATALOG_NEW"
+    SET_CATALOG_NEW = "SET_CATALOG_NEW",
+    ADD_PRODUCTS_CATALOG = "ADD_PRODUCTS_CATALOG",
+    DELETE_PRODUCTS_CATALOG = "DELETE_PRDOCUTS_CATALOG",
+    ADD_PRODUCT_ITEM = "ADD_PRODUCT_ITEM"
 }
 
 interface FetchProductsAction {
@@ -40,4 +45,19 @@ interface DeleteItemOnCart{
     payload: []
 }
 
-export type productsAction = FetchProductsAction | FetchProductsSuccessAction | FetchProductsErrorAction | FetchProductsSetNewAction | FetchProductsSetAction | DeleteItemOnCart
+// Actions для администратора
+interface AddProductsCatalog{
+    type: ProductsAtionTypes.ADD_PRODUCTS_CATALOG,
+    payload: any[]
+}
+
+interface AddProductItem{
+    type: ProductsAtionTypes.ADD_PRODUCT_ITEM,
+}
+
+interface DeleteProductsCatalog{
+    type: ProductsAtionTypes.DELETE_PRODUCTS_CATALOG,
+    payload: []
+}
+
+export type productsAction = FetchProductsAction | FetchProductsSuccessAction | FetchProductsErrorAction | FetchProductsSetNewAction | FetchProductsSetAction | DeleteItemOnCart | AddProductsCatalog | DeleteProductsCatalog | AddProductItem
