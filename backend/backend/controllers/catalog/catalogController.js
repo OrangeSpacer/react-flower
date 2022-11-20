@@ -48,14 +48,12 @@ export const updateitemCatalogInCart = asyncHandler(async(req,res) => {
         }
     })
     await catalogItems[0].save()
-    console.log(catalogItems)
     res.json(catalogItems)
 })
 
 // @desc Update Catalog
 // @route POST /api/catalog/change
 // @access Private
-
 
 export const updateCatalog = asyncHandler(async(req,res) => {
     const currentCatalog = await Catalog.find({})
@@ -76,4 +74,16 @@ export const updateCatalog = asyncHandler(async(req,res) => {
 
     res.json(updateCatalog)
 
+})
+
+// @desc Delete Catalog
+// @route POST /api/catalog/change
+// @access Private
+
+export const deleteCatalog = asyncHandler(async(req,res) => {
+    const id = req.body
+
+    await Catalog.findOneAndDelete()
+
+    res.json({message:"Каталог был удален"})
 })
