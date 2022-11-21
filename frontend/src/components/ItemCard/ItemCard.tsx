@@ -5,7 +5,7 @@ import cn from "classnames"
 import styles from './ItemCard.module.scss'
 import { useAction } from '../../hooks/useAction'
 
-const ItemCard = ({colorless = false,imgLink,price,id,inCart,name,interaction = true,height='450',width='350'}:ItemCardProps) => {
+const ItemCard = ({colorless = false,imgLink,price,id,inCart,name,tags,interaction = true,height='450',width='350'}:ItemCardProps) => {
     const {addItemCart,deleteItemCart,fetchCart,changeStateItemOnCart} = useAction()
     const addItem = () => {
         addItemCart(name,price,'1',imgLink,id)
@@ -38,6 +38,17 @@ const ItemCard = ({colorless = false,imgLink,price,id,inCart,name,interaction = 
                         В корзину 
                     </Button>
                 }
+            </div>:
+            null
+        }
+        {tags ? 
+            <div>
+                <div>
+                    Теги:
+                </div>
+                <div>
+                    {tags.colors} & {tags.format} & {tags.light}
+                </div>
             </div>:
             null
         }

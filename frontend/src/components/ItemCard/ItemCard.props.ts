@@ -9,5 +9,6 @@ export interface ItemCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivE
     inCart?:boolean,
     width?: string,
     height?: string,
-    colorless?: boolean
+    colorless?: boolean,
+    tags?: {colors:string,light:string,format:string}
 }

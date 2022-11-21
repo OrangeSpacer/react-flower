@@ -1,18 +1,20 @@
 import Select from 'react-select'
+import { CreateItemProps } from './CreateItem.props'
 
 import cn from "classnames"
 import styles from './CreateItem.module.scss'
 
-const CreateItem = () => {
+const CreateItem = ({color,cost,format,light,name,handleColor,handleCost,handleFormat,handleLight,handleName,createItem}:CreateItemProps) => {
+
     const imgArray = [
         {imageId: '1',imgSrc: "img/cardItem/1.png"},
         {imageId: '2',imgSrc: "img/cardItem/2.png"},
         {imageId: '3',imgSrc: "img/cardItem/3.png"}
     ]
     const optionsColor = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' }
+        { value: 'yellow', label: 'желтый' },
+        { value: 'white', label: 'белый' },
+        { value: 'green', label: 'зеленый' }
     ]
     const optionsFormat = [
         { value: 'chocolate', label: 'Chocolate' },
@@ -59,22 +61,22 @@ const CreateItem = () => {
                 {imgArray.map((item,index) => <img key={item.imageId} id={item.imageId} src={item.imgSrc} alt="imageId" className={styles.img}/>)}
             </div>
             <div className={styles.inputBlock}>
-                <input placeholder='Название товара' className={styles.input}/>
-                <input placeholder='Цена товара' className={styles.input}/>
+                <input placeholder='Название товара' className={styles.input} value={name} onChange={handleName}/>
+                <input placeholder='Цена товара' className={styles.input} value={cost} onChange={handleCost}/>
             </div>
             <div className={styles.typeBlock}>
                 <div className={styles.subTitle}>
                     Параметры товара
                 </div>
                 <div className={styles.selectBlock}>
-                    <Select options={optionsColor} styles={selectStyles}/>
-                    <Select options={optionsFormat} styles={selectStyles}/>
-                    <Select options={optionsLight} styles={selectStyles}/>
+                    <Select options={optionsColor} styles={selectStyles} onChange={handleColor}/>
+                    <Select options={optionsFormat} styles={selectStyles} onChange={handleFormat}/>
+                    <Select options={optionsLight} styles={selectStyles} onChange={handleLight}/>
                 </div>
             </div>
             <div className={styles.btnBlock}>
-                <button className={styles.btn}>
-                    Добавить товар
+                <button className={styles.btn} onClick={createItem}>
+                    Создать товар
                 </button>
             </div>
         </div>
