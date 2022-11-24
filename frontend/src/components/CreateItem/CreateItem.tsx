@@ -4,7 +4,7 @@ import { CreateItemProps } from './CreateItem.props'
 import cn from "classnames"
 import styles from './CreateItem.module.scss'
 
-const CreateItem = ({color,cost,format,light,name,handleColor,handleCost,handleFormat,handleLight,handleName,createItem}:CreateItemProps) => {
+const CreateItem = ({imageId,cost,name,handleColor,handleCost,handleFormat,handleLight,handleName,createItem,handleImage}:CreateItemProps) => {
 
     const imgArray = [
         {imageId: '1',imgSrc: "img/cardItem/1.png"},
@@ -58,7 +58,7 @@ const CreateItem = ({color,cost,format,light,name,handleColor,handleCost,handleF
     return (
         <div className={styles.createItem}>
             <div className={styles.imgBlock}>
-                {imgArray.map((item,index) => <img key={item.imageId} id={item.imageId} src={item.imgSrc} alt="imageId" className={styles.img}/>)}
+                {imgArray.map((item,index) => <img key={item.imageId} id={item.imageId} src={item.imgSrc} alt="imageId" className={cn(styles.img,{[styles.active]: String(index+1)==imageId})} onClick={() => handleImage(index+1)}/>)}
             </div>
             <div className={styles.inputBlock}>
                 <input placeholder='Название товара' className={styles.input} value={name} onChange={handleName}/>
@@ -69,9 +69,9 @@ const CreateItem = ({color,cost,format,light,name,handleColor,handleCost,handleF
                     Параметры товара
                 </div>
                 <div className={styles.selectBlock}>
-                    <Select options={optionsColor} styles={selectStyles} onChange={handleColor}/>
-                    <Select options={optionsFormat} styles={selectStyles} onChange={handleFormat}/>
-                    <Select options={optionsLight} styles={selectStyles} onChange={handleLight}/>
+                    <Select options={optionsColor} styles={selectStyles} onChange={handleColor} placeholder="Цвет"/>
+                    <Select options={optionsFormat} styles={selectStyles} onChange={handleFormat} placeholder="Формат"/>
+                    <Select options={optionsLight} styles={selectStyles} onChange={handleLight} placeholder="Свет"/>
                 </div>
             </div>
             <div className={styles.btnBlock}>

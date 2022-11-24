@@ -51,13 +51,9 @@ interface AddProductsCatalog{
     payload: any[]
 }
 
-interface AddProductItem{
-    type: ProductsAtionTypes.ADD_PRODUCT_ITEM,
-}
-
 interface DeleteProductsCatalog{
     type: ProductsAtionTypes.DELETE_PRODUCTS_CATALOG,
     payload: []
 }
 
-export type productsAction = FetchProductsAction | FetchProductsSuccessAction | FetchProductsErrorAction | FetchProductsSetNewAction | FetchProductsSetAction | DeleteItemOnCart | AddProductsCatalog | DeleteProductsCatalog | AddProductItem
+export type productsAction = FetchProductsAction | FetchProductsSuccessAction | FetchProductsErrorAction | FetchProductsSetNewAction | FetchProductsSetAction | DeleteItemOnCart | AddProductsCatalog | DeleteProductsCatalog

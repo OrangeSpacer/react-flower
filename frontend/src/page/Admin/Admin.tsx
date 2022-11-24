@@ -14,16 +14,18 @@ import styles from './Admin.module.scss'
 import ItemCard from "../../components/ItemCard/ItemCard"
 
 const Admin = () => {
-  const {logoutAuth,fetchAuth,deleteProductsCatalog,addProductsCatalog,addProductItem} = useAction()
+  const {logoutAuth,fetchAuth,deleteProductsCatalog,addProductsCatalog,fetchProducts} = useAction()
   const history = useNavigate()
   const {auth} = useTypesSelector(state => state.auth)
   const [items,setItems] = useState<{}[]>([])
+  const [disabledAddItem,setDisabledAddItem] = useState(true)
   const [cost,setCost] = useState('')
   const [name,setName] = useState('')
   const [color,setColor] = useState('')
   const [format,setFormat] = useState('')
   const [light,setLight] = useState('')
   const [imgId,setImgId] = useState('1')
+
 
   const handleCost = (e:any) => {
     const value = e.target.value
@@ -37,6 +39,10 @@ const Admin = () => {
     if(!/\d+/g.test(value)){
       setName(value)
     }
+  }
+
+  const handleImage = (index:string) => {
+    setImgId(index)
   }
 
   const handleColor = (e:any) => {
@@ -82,6 +88,11 @@ const Admin = () => {
     setItems(newItems)
   }
 
+  const handleCreateCatalog = () => {
+    addProductsCatalog(items)
+    fetchProducts()
+  }
+
   const deleteItem = (id:string) => {
     let newArrays = [...items]
     newArrays = newArrays.filter((item:any) => item.id!==id)
@@ -94,7 +105,7 @@ const Admin = () => {
     <div className={styles.admin}>
       <Container>
         <Title title="Админ" titleSide="c" subTitleSide="c" subtitle="панель"/>
-        <CreateItem color={color} name={name} cost={cost} format={format} light={light} handleColor={handleColor} handleCost={handleCost} handleFormat={handleFormat} handleLight={handleLight} handleName={handleName} createItem={handleItemAdd}/>
+        <CreateItem imageId={imgId} disabledBtnCreate={disabledAddItem} color={color} name={name} cost={cost} format={format} light={light} handleColor={handleColor} handleCost={handleCost} handleFormat={handleFormat} handleLight={handleLight} handleName={handleName} createItem={handleItemAdd} handleImage={handleImage}/>
         {items.length > 0 ? 
           <div>
             <div>
@@ -109,15 +120,17 @@ const Admin = () => {
                   <ItemCard imgLink={item.imageId} name={item.name} price={item.cost} tags={item.tags} id={item.id} interaction={false}/>
                 </div>)}
             </div>
+            <button onClick={handleCreateCatalog}>
+              Добавить товар
+            </button>
           </div>:
           null
         }
-        <button onClick={() => addProductItem(items)}>
-          Добавить товар
-        </button>
-        <Button type="default" onClick={handleLogout}>
-          Выйти
-        </Button>
+        <div className={styles.logoutBlock}>
+          <Button type="default" onClick={handleLogout}>
+            Выйти
+          </Button>
+        </div>
       </Container>
     </div>
   )

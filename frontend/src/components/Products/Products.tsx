@@ -17,7 +17,7 @@ const Products = ({products}:ProductsProps) => {
 
   useEffect(() => {
     setList(products)
-  },[products])
+  },[products.length])
 
   const handleLightChecked = (id:string) => {
     const lightStateLIst = light

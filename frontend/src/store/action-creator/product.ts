@@ -76,20 +76,3 @@ export const deleteProductsCatalog = ():any => {
         }
     }
 }
-
-export const addProductItem = (newItems:{}[]) => {
-    return async() => {
-        try{
-            const token = localStorage.getItem('token')
-            await axios.post('/api/catalog/change',{
-                newItems:newItems
-            },{
-                headers:{
-                    Authorization: 'Bearer ' + token
-                }
-            })
-        }catch(e){
-            console.log(e)
-        }
-    }
-}

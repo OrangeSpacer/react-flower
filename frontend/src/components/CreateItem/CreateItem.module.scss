@@ -68,6 +68,10 @@
     }
 }
 
+.active{
+    border: 2px solid $main;
+}
+
 @media screen and (max-width:570px) {
     .inputBlock{
         flex-direction: column;

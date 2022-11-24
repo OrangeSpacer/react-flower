@@ -1,6 +1,8 @@
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 export interface CreateItemProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement>{
+    imageId: string,
+    handleImage: any,
     cost: string,
     handleCost: any
     name:string,
@@ -11,5 +13,6 @@ export interface CreateItemProps extends DetailedHTMLProps<HTMLAttributes<HTMLDi
     handleFormat: any
     light: string,
     handleLight: any,
-    createItem: any
+    createItem: any,
+    disabledBtnCreate: boolean
 }
