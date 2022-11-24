@@ -19,8 +19,14 @@ export const postCatalog = asyncHandler(async(req,res) => {
         res.json(catalog)
     }
     else{
-        res.status(404)
-        throw new Error('Каталог уже существует')
+        items.forEach(item => {
+            itemsCurrent[0].items.push(item)
+        })
+
+
+        const updateCatalog = await itemsCurrent[0].save()
+
+        res.json(updateCatalog)
     }
 })
 
@@ -51,38 +57,12 @@ export const updateitemCatalogInCart = asyncHandler(async(req,res) => {
     res.json(catalogItems)
 })
 
-// @desc Update Catalog
-// @route POST /api/catalog/change
-// @access Private
-
-export const updateCatalog = asyncHandler(async(req,res) => {
-    const currentCatalog = await Catalog.find({})
-
-    if(!currentCatalog){
-        res.status(404)
-        throw new Error('Каталог не найден')
-    }
-
-    const {newItems} = req.body
-
-    newItems.forEach(item => {
-        currentCatalog[0].items.push(item)
-    })
-
-
-    const updateCatalog = await currentCatalog[0].save()
-
-    res.json(updateCatalog)
-
-})
 
 // @desc Delete Catalog
 // @route POST /api/catalog/change
 // @access Private
 
 export const deleteCatalog = asyncHandler(async(req,res) => {
-    const id = req.body
-
     await Catalog.findOneAndDelete()
 
     res.json({message:"Каталог был удален"})
