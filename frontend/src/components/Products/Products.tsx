@@ -3,7 +3,7 @@ import ItemCard from '../ItemCard/ItemCard'
 import Filter from '../Filter/Filter'
 import { ProductsProps } from './Products.props'
 import { useEffect, useState } from 'react'
-import { colorsDefault,formatDefault,lightDefault } from './ProductsFeaultsValue'
+import { colorsDefault,formatDefault,lightDefault } from './ProductsFiltersValue'
 
 import styles from  './Products.module.scss'
 
@@ -14,10 +14,6 @@ const Products = ({products}:ProductsProps) => {
   const [colors,setColor] = useState(colorsDefault)
   const [format,setFormat] = useState(formatDefault)
   const [light,setLight] = useState(lightDefault)
-
-  useEffect(() => {
-    setList(products)
-  },[products.length])
 
   const handleLightChecked = (id:string) => {
     const lightStateLIst = light
@@ -75,7 +71,7 @@ const Products = ({products}:ProductsProps) => {
 
   useEffect(() => {
     applyFilters()
-  },[selectedPrice,searchInput,colors,format,light])
+  },[selectedPrice,searchInput,colors,format,light,products])
 
 
   const defaultFilter = () => {

@@ -10,5 +10,6 @@ export interface ItemCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivE
     width?: string,
     height?: string,
     colorless?: boolean,
-    tags?: {colors:string,light:string,format:string}
+    tags?: {colors:string,light:string,format:string},
+    handlerDelete?:any
 }

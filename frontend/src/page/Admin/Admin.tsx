@@ -74,18 +74,20 @@ const Admin = () => {
 
   const handleItemAdd = () => {
     let newItems = [...items]
-    newItems.push({
-      "imageId": imgId,
-      "nameItem":name,
-      "tags":{
-        colors:color,
-        format:format,
-        light:light
-      },
-      "cost":cost,
-      "id":nanoid()
-    })
-    setItems(newItems)
+    if(cost && name && format && color && light){
+      newItems.push({
+        "imageId": imgId,
+        "nameItem":name,
+        "tags":{
+          colors:color,
+          format:format,
+          light:light
+        },
+        "cost":cost,
+        "id":nanoid()
+      })
+      setItems(newItems)
+    }
   }
 
   const handleCreateCatalog = () => {
@@ -107,20 +109,17 @@ const Admin = () => {
         <Title title="Админ" titleSide="c" subTitleSide="c" subtitle="панель"/>
         <CreateItem imageId={imgId} disabledBtnCreate={disabledAddItem} color={color} name={name} cost={cost} format={format} light={light} handleColor={handleColor} handleCost={handleCost} handleFormat={handleFormat} handleLight={handleLight} handleName={handleName} createItem={handleItemAdd} handleImage={handleImage}/>
         {items.length > 0 ? 
-          <div>
-            <div>
+          <div className={styles.itemsCreateBlock}>
+            <div className={styles.title}>
               Демонстрация созданного каталога:
             </div>
-            <div>
-                {items.map((item:any,index) => 
-                <div key={item.id} id={item.id}>
-                  <div onClick={() => deleteItem(item.id)}>
-                    X
-                  </div>
-                  <ItemCard imgLink={item.imageId} name={item.name} price={item.cost} tags={item.tags} id={item.id} interaction={false}/>
+            <div className={styles.itemsBlock}>
+                {items.map((item:any) => 
+                <div key={item.id} id={item.id} className={styles.item}>
+                  <ItemCard imgLink={item.imageId} name={item.nameItem} price={item.cost} tags={item.tags} id={item.id} interaction={false} handlerDelete={deleteItem}/>
                 </div>)}
             </div>
-            <button onClick={handleCreateCatalog}>
+            <button onClick={handleCreateCatalog} className={styles.add}>
               Добавить товар
             </button>
           </div>:

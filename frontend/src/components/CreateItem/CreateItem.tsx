@@ -1,31 +1,12 @@
 import Select from 'react-select'
 import { CreateItemProps } from './CreateItem.props'
+import {imgArray,optionsColor,optionsFormat,optionsLight} from './CreateItemValue'
 
 import cn from "classnames"
 import styles from './CreateItem.module.scss'
 
 const CreateItem = ({imageId,cost,name,handleColor,handleCost,handleFormat,handleLight,handleName,createItem,handleImage}:CreateItemProps) => {
 
-    const imgArray = [
-        {imageId: '1',imgSrc: "img/cardItem/1.png"},
-        {imageId: '2',imgSrc: "img/cardItem/2.png"},
-        {imageId: '3',imgSrc: "img/cardItem/3.png"}
-    ]
-    const optionsColor = [
-        { value: 'yellow', label: 'желтый' },
-        { value: 'white', label: 'белый' },
-        { value: 'green', label: 'зеленый' }
-    ]
-    const optionsFormat = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' }
-    ]
-    const optionsLight = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' }
-    ]
 
     const selectStyles = {
         menu: () => ({

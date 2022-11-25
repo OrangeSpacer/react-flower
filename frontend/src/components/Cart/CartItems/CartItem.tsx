@@ -7,6 +7,7 @@ import styles from './CartItem.module.scss'
 import { CartItemProps } from './CartItem.props'
 
 const CartItem = ({cost,imageId,title,quantity,id,deleteItem,changeQunatity,changeTotalPrice}:CartItemProps) => {
+    const {addQunatityItemCart} = useAction()
     const [count,setCount] = useState(quantity)
     const [costItem,setCostItem] = useState<string>(cost)
 
@@ -20,9 +21,12 @@ const CartItem = ({cost,imageId,title,quantity,id,deleteItem,changeQunatity,chan
     },[count,cost,id,changeTotalPrice])
 
     useEffect(() => {
-        changeQunatity(id,count)
+        if(id!==null && count!==null){
+            addQunatityItemCart(id,count)
+        }
     },[quantity])
 
+    
     return (
     <div className={styles.cartItem}>
         <div className={styles.imgBlock}>
