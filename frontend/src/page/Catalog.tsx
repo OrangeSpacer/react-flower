@@ -13,10 +13,8 @@ const Catalog = () => {
     fetchProducts()
   },[])
 
-  console.log(items)
 
   if(loading){
-    console.log('Загрузка')
     return <Loader/>
   }
 

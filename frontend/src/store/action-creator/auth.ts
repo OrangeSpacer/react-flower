@@ -19,7 +19,6 @@ export const fetchAuth = () => {
                 type: AuthActionTypes.FETCH_AUTH_SUCCESS,
                 payload:!!token
             })
-            console.log(token)
         }catch(e:any){
             dispatch({
                 type:AuthActionTypes.FETCH_AUTH_ERROR,

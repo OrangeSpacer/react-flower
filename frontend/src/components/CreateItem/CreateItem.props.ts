@@ -13,6 +13,5 @@ export interface CreateItemProps extends DetailedHTMLProps<HTMLAttributes<HTMLDi
     handleFormat: any
     light: string,
     handleLight: any,
-    createItem: any,
-    disabledBtnCreate: boolean
+    createItem: any
 }

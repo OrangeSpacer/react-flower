@@ -35,8 +35,6 @@ const Profile = () => {
         return <Loader/>
     }
 
-    console.log(auth)
-
     return (
         <div className={styles.profile}>
             <Container>

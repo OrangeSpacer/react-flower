@@ -18,7 +18,6 @@ const Admin = () => {
   const history = useNavigate()
   const {auth} = useTypesSelector(state => state.auth)
   const [items,setItems] = useState<{}[]>([])
-  const [disabledAddItem,setDisabledAddItem] = useState(true)
   const [cost,setCost] = useState('')
   const [name,setName] = useState('')
   const [color,setColor] = useState('')
@@ -101,13 +100,11 @@ const Admin = () => {
     setItems(newArrays)
   }
 
-  console.log(items)
-
   return (
     <div className={styles.admin}>
       <Container>
         <Title title="Админ" titleSide="c" subTitleSide="c" subtitle="панель"/>
-        <CreateItem imageId={imgId} disabledBtnCreate={disabledAddItem} color={color} name={name} cost={cost} format={format} light={light} handleColor={handleColor} handleCost={handleCost} handleFormat={handleFormat} handleLight={handleLight} handleName={handleName} createItem={handleItemAdd} handleImage={handleImage}/>
+        <CreateItem imageId={imgId} color={color} name={name} cost={cost} format={format} light={light} handleColor={handleColor} handleCost={handleCost} handleFormat={handleFormat} handleLight={handleLight} handleName={handleName} createItem={handleItemAdd} handleImage={handleImage}/>
         {items.length > 0 ? 
           <div className={styles.itemsCreateBlock}>
             <div className={styles.title}>
@@ -119,9 +116,11 @@ const Admin = () => {
                   <ItemCard imgLink={item.imageId} name={item.nameItem} price={item.cost} tags={item.tags} id={item.id} interaction={false} handlerDelete={deleteItem}/>
                 </div>)}
             </div>
-            <button onClick={handleCreateCatalog} className={styles.add}>
-              Добавить товар
-            </button>
+            <div className={styles.addBlock}>
+              <button onClick={handleCreateCatalog} className={styles.add}>
+                {items.length > 1 ? 'Добавить товары':'Добавить товар'}
+              </button>
+            </div>
           </div>:
           null
         }

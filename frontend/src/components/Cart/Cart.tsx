@@ -102,7 +102,9 @@ const Cart = ({open,setOpen}:CartProps) => {
               {!orderComplete ? 
               'Ваша корзина пуста':'Спасибо за заказ'}
             </div>
-            <img src={!orderComplete ? 'img/cart/empty.png':''} alt="empty-cart" className={styles.emptyImg}/>
+            {
+              !orderComplete ? <img src='img/cart/empty.png' alt="empty-cart" className={styles.emptyImg}/>:null
+            }
           </div>
       }
     </div>
