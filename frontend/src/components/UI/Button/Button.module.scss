@@ -50,3 +50,9 @@
         transition: all 0.5s ease;
     }
 }
+
+.disabled{
+    pointer-events: none;
+    color: $white;
+    background: $main;
+}

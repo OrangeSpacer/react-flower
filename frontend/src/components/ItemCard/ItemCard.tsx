@@ -6,18 +6,11 @@ import styles from './ItemCard.module.scss'
 import { useAction } from '../../hooks/useAction'
 
 const ItemCard = ({colorless = false,imgLink,price,id,inCart,name,tags,interaction = true,height='450',width='350',handlerDelete}:ItemCardProps) => {
-    const {addItemCart,deleteItemCart,fetchCart,changeStateItemOnCart} = useAction()
+    const {addItemCart,changeStateItemOnCart} = useAction()
     const addItem = () => {
         addItemCart(name,price,'1',imgLink,id)
-        changeStateItemOnCart(id)
+        changeStateItemOnCart()
     }
-
-    const removeItem = () => {
-        deleteItemCart(id)
-        fetchCart()
-        changeStateItemOnCart(id)
-    }
-
 
     return (
     <div className={styles.ItemCard}>
@@ -31,8 +24,8 @@ const ItemCard = ({colorless = false,imgLink,price,id,inCart,name,tags,interacti
         {interaction ? 
             <div className={styles.addCart}>
                 {inCart ? 
-                    <Button type='cart' onClick={removeItem}>
-                        Удалить 
+                    <Button type='disabled'>
+                        В корзине
                     </Button>:
                     <Button type='cart' onClick={addItem}>
                         В корзину 

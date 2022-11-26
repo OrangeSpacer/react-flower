@@ -20,10 +20,10 @@ export const fetchProducts = ():any => {
     }
 }
 
-export const changeStateItemOnCart = (id:string):any => {
+export const changeStateItemOnCart = ():any => {
     return async(dispatch: Dispatch<productsAction>) => {
         try{
-            const {data} = await axios.put('/api/catalog/change',{id})
+            const {data} = await axios.put('/api/catalog/change')
             dispatch({
                 type: ProductsAtionTypes.DETELE_ITEM_ON_CART,
                 payload: data[0].items

@@ -47,10 +47,13 @@ const Cart = ({open,setOpen}:CartProps) => {
 
   const deleteItem = (id:string) => {
     const newCartItems = cartItems.filter((item:any) => item._id!==id)
-    changeStateItemOnCart(id)
     deleteItemCart(id)
     setCartItems(newCartItems)
   }
+
+  useEffect(() => {
+    changeStateItemOnCart()
+  },[cartItems])
 
   const handeleAddQuantity = (id:string,qunatity:string) => {
     const newQunatityArrays = cartItems
