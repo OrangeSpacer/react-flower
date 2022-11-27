@@ -2,7 +2,7 @@
 
 Интернет магазин цветов
 
-[Демонстрация проекта в видео формате](https://www.youtube.com/watch?v=_ACQQ8AJ1qQ)
+[Демонстрация проекта в видео формате](https://www.youtube.com/watch?v=PvGFXYxaFp4)
 
 # Функционал
 
@@ -23,7 +23,7 @@
     - React.js
     - TypeScript
     - Axios
-    - Redax
+    - Redux
     - SCSS
 
 # Как запусить проект
