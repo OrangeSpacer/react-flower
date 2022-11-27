@@ -65,7 +65,7 @@ const Profile = () => {
                 </div>
                 <div className={styles.logoutBlock}>
                     <Button type='default' onClick={handleLogout}>
-                        Logout
+                        Выйти
                     </Button>
                 </div>
             </Container>
