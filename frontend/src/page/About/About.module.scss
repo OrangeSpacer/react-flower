@@ -1,0 +1,104 @@
+@import '../../styles/variables';
+
+.about{
+    margin-top: 120px;
+    position: relative;
+    padding: 0 15px;
+}
+
+.block{
+    margin-bottom: 100px;
+    &:nth-child(1n){
+        margin-top: 100px;
+    }
+}
+
+.content{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.title{
+    padding-left: 150px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 64px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: $main;
+}
+
+.textBlock{
+    max-width: 840px;
+    padding: 40px 20px;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.textTitle{
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.text{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0.02em;
+    color: $white; 
+}
+
+.textCenter{
+    padding-left: 150px;
+    max-width: 825px;
+    text-align: left;
+}
+
+.img{
+    position: absolute;
+    z-index: -20000;
+}
+
+.left{
+    top: 0;
+    left: 0;
+}
+
+.right{
+    top: 0;
+    right: 0;
+}
+
+.bottom{
+    bottom: -100px;
+    right: 0;
+}
+
+@media screen and (max-width:1100px){
+    .title{
+        padding-left: 0;
+    }
+    .textTitle{
+        padding-left: 0;
+    }   
+}
+
+@media screen and (max-width:650px) {
+    .title{
+        font-size: 45px;
+        line-height: 45px;
+    }
+    .content{
+        justify-content: center;
+    }
+    .textCenter{
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width:500px){
+    .title{
+        font-size: 30px;
+    }
+}

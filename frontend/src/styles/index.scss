@@ -1,0 +1,11 @@
+@import './variables';
+
+body{
+    margin: 0;
+    background: $main-background;
+    box-sizing: border-box;
+}
+
+.App{
+    overflow-x: hidden;
+}

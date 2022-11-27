@@ -1,0 +1,52 @@
+@import '../../../styles/variables';
+
+.accordion{
+    width: 100%;
+    max-width: 862px;
+}
+
+.block{
+    padding: 20px;
+    border: 1px solid $main;
+}
+
+.heading{
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.title{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-transform: uppercase;
+    color: $main;
+}
+
+.content{
+    height: 0;
+    opacity: 0;
+    display: flex;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+.text{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 30px;
+    color: $white;
+}
+
+.open{
+    height:100px;
+    opacity:1;
+    margin-top:20px;
+}
+
+@media screen and (max-width:475px){
+    .open{
+        height: 185px;
+    }
+}

@@ -1,0 +1,59 @@
+@import "../../styles/variables";
+
+.footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 40px;
+    padding: 15px 20px 50px 20px;
+    background: black;
+}
+
+.title{
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $main;
+}
+
+.text{
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $white;
+}
+
+.textBlock{
+    width: 244px;
+}
+
+.block{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.linkBlock{
+    &:not(:last-child){
+        margin-bottom: 8px;
+    }
+}
+
+.pageLinks{
+    &:not(:last-child){
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .footer{
+        justify-content: left;
+    }
+}

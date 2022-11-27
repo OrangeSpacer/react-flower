@@ -1,0 +1,116 @@
+@import '../../styles/variables';
+
+
+.cart{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(200%);
+    transition: all 0.5s ease;
+}
+
+.cartItems{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-grow: 1;
+    height: 100%;
+    overflow: auto;
+    &::-webkit-scrollbar{
+        width: 4px;
+        background: $black-violet;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: $main;
+    }
+}
+
+.mainBlock{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.empty{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.emptyTitle{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.emptyImg{
+    width: 250px;
+    height: 250px;
+}
+
+.btnBlock{
+    text-align: center;
+    padding: 50px 30px;
+}
+
+.close{
+    cursor: pointer;
+}
+
+.cart{
+    position: fixed;
+    padding: 20px 30px;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 25vw;
+    background: black;
+}
+
+.title{
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 44px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $main;
+}
+
+.open{
+    transform: translateX(0);
+    transition: all 0.5s ease;
+}
+
+@media screen and (max-width:1440px){
+    .cart{
+        width: 40vw;
+    }
+}
+
+@media screen and (max-width:768px){
+    .cart{
+        width: 45vw;
+    }
+    .title{
+        font-size: 25px;
+    }
+}
+
+
+@media screen and (max-width:650px){
+    .cart{
+        width: 65vw;
+        padding: 30px 10px;
+    }
+    .title{
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width:470px){
+    .cart{
+        width: 85vw;
+    }
+}

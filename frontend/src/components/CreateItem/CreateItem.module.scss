@@ -1,0 +1,79 @@
+@import '../../styles/variables';
+
+.createItem{
+    margin-top: 50px;
+}
+
+.imgBlock{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.img{
+    width: 250px;
+    height: 350px;
+}
+
+.inputBlock{
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.input{
+    width:-webkit-fill-available;
+    padding: 10px 5px;
+    font-size: 18px;
+    background: transparent;
+    color: $white;
+    border: 1px solid $main;
+}
+
+.typeBlock{
+    margin-top: 25px;
+}
+
+.subTitle{
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 25px;
+    color: $white;
+}
+
+.selectBlock{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btnBlock{
+    text-align: center;
+}
+
+.btn{
+    cursor: pointer;
+    margin-top: 15px;
+    padding: 10px;
+    color: $white;
+    border: 1px solid $main;
+    background: transparent;
+    transition: all 0.5s ease;
+    &:hover{
+        transition: all 0.5s ease;
+        background-color: $black-violet;
+    }
+}
+
+.active{
+    border: 2px solid $main;
+}
+
+@media screen and (max-width:570px) {
+    .inputBlock{
+        flex-direction: column;
+    }
+}

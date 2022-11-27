@@ -1,0 +1,67 @@
+@import '../../styles/variables';
+
+.form{
+    margin: 80px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+}
+
+.inputBlock{
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.error{
+    position: absolute;
+    top: -42px;
+    font-size: 18px;
+    color: $error;
+}
+
+.input{
+    width: 768px;
+    padding: 15px 25px;
+    font-size: 18px;
+    background: transparent;
+    color: white;
+    border: 2px solid $black-green;
+}
+
+.backError{
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 5px 0;
+    font-size: 18px;
+    color: white;
+    background: $error;
+    transition: all 0.5s ease;
+}
+
+.buttonsBlock{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+@media screen and (max-width:840px) {
+    .input{
+        width: -webkit-fill-available;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .title{
+        margin-top: 120px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .buttonsBlock{
+        justify-content: center ;
+    }
+}

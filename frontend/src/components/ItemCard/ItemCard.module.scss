@@ -1,0 +1,67 @@
+@import '../../styles/variables';
+
+.colorless{
+    filter: grayscale(100%)
+}
+
+.name{
+    max-width: 250px;
+    word-break: break-word;
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $white;
+}
+
+.price{
+    margin-top:10px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $white;
+}
+
+.addCart{
+    margin-top: 20px;
+}
+
+.tagTitle{
+    margin-top: 10px;
+    font-size: 16px;
+    color: $white;
+}
+
+.tags{
+    font-size: 15px;
+    color: $white;
+}
+
+.delete{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.btn{
+    cursor: pointer;
+    padding: 5px 8px;
+    border: 1px solid $main;
+    color: $white;
+    background: transparent;
+    transition: all 0.5s ease;
+    &:hover{
+        transition: all 0.5s ease;
+        background: $black-violet;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .img{
+        width: 280px!important;
+        height: 450px;
+    }
+}

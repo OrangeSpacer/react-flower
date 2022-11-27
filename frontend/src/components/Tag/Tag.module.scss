@@ -1,0 +1,23 @@
+@import '../../styles/variables';
+
+.tag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    padding: 11px 16px;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border: 1px solid $white;
+    border-radius: 40px;
+    color: $white;
+    transition: all 0.5s ease;
+    &:hover{
+        color: black;
+        background: $main;
+        border-color: $main;
+        transition: all 0.5s ease;
+    }
+}

@@ -1,0 +1,39 @@
+@import "../../../styles/variables";
+
+.title{
+    margin: 0;
+    font-weight: 400;
+    font-size: 100px;
+    line-height: 121px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: $white;
+}
+
+.left{
+    text-align: left;
+}
+
+.right{
+    text-align: right;
+}
+
+.center{
+    text-align: center;
+}
+
+@media screen and (max-width:768px) {
+    .title{
+        font-size: 65px;
+        line-height: 80px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:550px) {
+    .title{
+        text-align: center;
+        font-size: 35px;
+        line-height: 50px;
+    }
+}
