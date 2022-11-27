@@ -13,7 +13,7 @@ export const createOrder = asyncHandler(async(req,res) => {
     userId = userId._id
     
     const endCost = items.reduce((acc,item) => {
-        acc+=Number(item.cost)
+        acc+=Number(item.quantity)*Number(item.cost)
         return acc
     },0)
 
