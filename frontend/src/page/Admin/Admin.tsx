@@ -116,7 +116,7 @@ const Admin = () => {
                   <ItemCard imgLink={item.imageId} name={item.nameItem} price={item.cost} tags={item.tags} id={item.id} interaction={false} handlerDelete={deleteItem}/>
                 </div>)}
             </div>
-            <div className={styles.addBlock}>
+            <div className={styles.btnBlock}>
               <button onClick={handleCreateCatalog} className={styles.add}>
                 {items.length > 1 ? 'Добавить товары':'Добавить товар'}
               </button>
@@ -124,6 +124,11 @@ const Admin = () => {
           </div>:
           null
         }
+        <div className={styles.btnBlock}>
+          <button onClick={deleteProductsCatalog} className={styles.add}>
+            Удалить каталог товаров
+          </button>
+        </div>
         <div className={styles.logoutBlock}>
           <Button type="default" onClick={handleLogout}>
             Выйти
